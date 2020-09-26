@@ -111,6 +111,7 @@ Visit [issues](https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issue
       <img src="https://avatars2.githubusercontent.com/u/45401242?s=460&u=2efe4366e8a6c7e8732daaaf8373250e7c8cfdd9&v=4" width="200px;" alt=""/><br /><sub><b>Sylwia Vargas</b></sub></a><br />
       <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=sylwiavargas" title="Code">💻</a> 
       <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues/created_by/sylwiavargas" title="Bug reports">🐛</a>
+      <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues?q=assignee%3Asylwiavargas" title="Fixes">🛠</a>
       <a href="#infra-sylwia" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a>
       <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/master/README.md" title="Documentation">📖</a>
       <a href="#ideas-sylwia" title="Ideas, Planning, & Feedback">💡</a>
@@ -120,6 +121,7 @@ Visit [issues](https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issue
       <a href="https://github.com/hyeokjungkim"><img src="https://media-exp1.licdn.com/dms/image/C4E03AQE_xHTl1agOQw/profile-displayphoto-shrink_400_400/0?e=1606348800&v=beta&t=eoVEoDnSRXqKT1OvSAmPuspCnTnd0Rp0qMehn7QJPuo" width="200px;" alt=""/><br /><sub><b>Eric Kim</b></sub></a><br />
       <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=hyeokjungkim" title="Code">💻</a> 
       <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues/created_by/hyeokjungkim" title="Bug reports">🐛</a>
+      <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues?q=assignee%3Ahyeokjungkim" title="Fixes">🛠</a>
       <a href="#infra-eric" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a>
       <a href="#ideas-eric" title="Ideas, Planning, & Feedback">💡</a>
     </td>
@@ -128,6 +130,7 @@ Visit [issues](https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issue
       <a href="https://github.com/bigfishh"><img src="https://avatars1.githubusercontent.com/u/24644341?s=460&u=7baa784acadf9750b2a2ccaf696e71a1e4be8619&v=4" width="200px;" alt=""/><br /><sub><b>Annie Zheng</b></sub></a><br />
       <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=bigfishh" title="Code">💻</a> 
       <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues/created_by/bigfishh" title="Bug reports">🐛</a>
+      <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues?q=assignee%3Abigfishh" title="Fixes">🛠</a>
       <a href="#infra-annie" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a>
       <a href="#ideas-annie" title="Ideas, Planning, & Feedback">💡</a>
     </td>
@@ -136,6 +139,7 @@ Visit [issues](https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issue
       <a href="https://www.kleetime.com/"><img src="https://avatars0.githubusercontent.com/u/52360534?s=400&u=e684090425f1788d91b4182c2d69729ecae3456f&v=4" width="200px;" alt=""/><br /><sub><b>Isabel K. Lee</b></sub></a><br />
       <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=isabelxklee" title="Code">💻</a> 
       <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues/created_by/isabelxklee" title="Bug reports">🐛</a>
+      <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues?q=assignee%3Aisabelxklee" title="Fixes">🛠</a>
       <a href="#infra-isabel" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a>
       <a href="#ideas-isabel" title="Ideas, Planning, & Feedback">💡</a>
     </td>
