@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
     def set_current_student
         # INSTANCE VARIABLES IN A BEFORE ACTION IS AVAILABLE
-        @current_student = Student.find_by(id: session[:student_id])
+        @current_user = Student.find_by(id: session[:student_id])
     end
 
     def check_and_see_if_someone_is_logged_in?

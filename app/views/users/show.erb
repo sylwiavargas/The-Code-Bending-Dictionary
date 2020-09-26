@@ -1,0 +1,13 @@
+<h1> <%= @user.username %></h1>
+
+<h2> All of the favorite words of <%= @user.username %> </h2>
+
+<ul>
+
+    <% @user.favorites.each do |fave_var| %>
+        <li><%=  fave_var.word %> | <%= fave_var.priority_level %> </li>
+    <% end %>
+    </ul>
+
+<hr>
+

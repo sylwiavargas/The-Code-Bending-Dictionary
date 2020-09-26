@@ -1,4 +1,4 @@
-puts "🧹 🧹 🧹 cleaning out the records... "
+puts " 🧹 🧹 🧹 cleaning out the records... 🧹 🧹 🧹 "
 
 Favorite.destroy_all
 Definition.destroy_all
@@ -6,7 +6,7 @@ User.destroy_all
 Word.destroy_all
 # Language.destroy_all
 
-puts "🌬 resets ids"
+puts "resetting ids... "
 
 Favorite.reset_pk_sequence
 Definition.reset_pk_sequence

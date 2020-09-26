@@ -1,0 +1,9 @@
+<h1> All the users</h1>
+
+<ul>
+    <% @users.map do |user_var|%>
+        <%# byebug %>
+        <li> <%= link_to user_var.full_name, user_path(user_var.id) %> </li>
+    <%end%>
+
+</ul>

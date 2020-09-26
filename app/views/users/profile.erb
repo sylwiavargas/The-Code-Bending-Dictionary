@@ -1,0 +1,13 @@
+<h1>Welcome to the Profile Page!</h1>
+
+<h2>Name: <%= @current_user.username %> </h2>
+    
+<hr/>
+
+<%= form_for @current_user do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username %> <br/>
+    <%= f.label :bio %>
+    <%= f.text_field :bio %><br/>
+    <%= f.submit %>
+<% end %> 

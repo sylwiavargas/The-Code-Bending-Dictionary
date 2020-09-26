@@ -18860,3 +18860,621 @@ Processing by WordsController#index as HTML
 Completed 200 OK in 17ms (Views: 5.8ms | ActiveRecord: 1.2ms | Allocations: 14468)
 
 
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200825175110)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "bio" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200825175110"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateWords (20200827152129)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "words" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200827152129"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateFavorites (20200827174440)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "priority_level" integer, "user_id" integer NOT NULL, "word_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d15744e438"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_530cfb4652"
+FOREIGN KEY ("word_id")
+  REFERENCES "words" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_favorites_on_user_id" ON "favorites" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_favorites_on_word_id" ON "favorites" ("word_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200827174440"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDefinitions (20200831165314)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "definitions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar, "word_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_3ad1edcbbb"
+FOREIGN KEY ("word_id")
+  REFERENCES "words" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_definitions_on_word_id" ON "definitions" ("word_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200831165314"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-26 15:41:19.321949"], ["updated_at", "2020-09-26 15:41:19.321949"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mFavorite Load (0.1ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites"[0m
+  [1m[36mDefinition Load (0.1ms)[0m  [1m[34mSELECT "definitions".* FROM "definitions"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."username" ASC[0m
+  [1m[36mWord Load (0.1ms)[0m  [1m[34mSELECT "words".* FROM "words"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT MAX("favorites"."id") FROM "favorites"[0m
+  [1m[35m (0.1ms)[0m  [1m[33mUPDATE sqlite_sequence SET seq = 0 WHERE name = 'favorites';[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT MAX("definitions"."id") FROM "definitions"[0m
+  [1m[35m (0.1ms)[0m  [1m[33mUPDATE sqlite_sequence SET seq = 0 WHERE name = 'definitions';[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT MAX("users"."id") FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[33mUPDATE sqlite_sequence SET seq = 0 WHERE name = 'users';[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT MAX("words"."id") FROM "words"[0m
+  [1m[35m (0.1ms)[0m  [1m[33mUPDATE sqlite_sequence SET seq = 0 WHERE name = 'words';[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "erickim"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "erickim"], ["password_digest", "$2a$12$mupF6FGK1wUby3WsOLcSe.HynkbtuatlXw/05E4kvXMU5978GJvJy"], ["created_at", "2020-09-26 15:41:25.678932"], ["updated_at", "2020-09-26 15:41:25.678932"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "sylwiavargas"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "sylwiavargas"], ["password_digest", "$2a$12$k0HC/udS3p4OAlqpLM5wzugqgknNpGcXHAAcSkxzhJYEg.vqtkDxi"], ["created_at", "2020-09-26 15:41:25.855121"], ["updated_at", "2020-09-26 15:41:25.855121"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "anniezheng"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "anniezheng"], ["password_digest", "$2a$12$M2wmCK6xpy2FO/2nN.Mm.usNeDQ2uW3fNUZv1jAPi/a/gYwVCG/Iq"], ["created_at", "2020-09-26 15:41:26.033930"], ["updated_at", "2020-09-26 15:41:26.033930"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "Model"], ["created_at", "2020-09-26 15:41:26.041560"], ["updated_at", "2020-09-26 15:41:26.041560"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "controller"], ["created_at", "2020-09-26 15:41:26.044322"], ["updated_at", "2020-09-26 15:41:26.044322"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "params"], ["created_at", "2020-09-26 15:41:26.047354"], ["updated_at", "2020-09-26 15:41:26.047354"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "strong params"], ["created_at", "2020-09-26 15:41:26.049848"], ["updated_at", "2020-09-26 15:41:26.049848"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "request"], ["created_at", "2020-09-26 15:41:26.052433"], ["updated_at", "2020-09-26 15:41:26.052433"]]
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "response"], ["created_at", "2020-09-26 15:41:26.054688"], ["updated_at", "2020-09-26 15:41:26.054688"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.3ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "ice-cream cone"], ["created_at", "2020-09-26 15:41:26.057121"], ["updated_at", "2020-09-26 15:41:26.057121"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "angry squid"], ["created_at", "2020-09-26 15:41:26.077229"], ["updated_at", "2020-09-26 15:41:26.077229"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "route"], ["created_at", "2020-09-26 15:41:26.079787"], ["updated_at", "2020-09-26 15:41:26.079787"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "view"], ["created_at", "2020-09-26 15:41:26.082423"], ["updated_at", "2020-09-26 15:41:26.082423"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "mvc"], ["created_at", "2020-09-26 15:41:26.084730"], ["updated_at", "2020-09-26 15:41:26.084730"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "erb"], ["created_at", "2020-09-26 15:41:26.087221"], ["updated_at", "2020-09-26 15:41:26.087221"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "self"], ["created_at", "2020-09-26 15:41:26.089548"], ["updated_at", "2020-09-26 15:41:26.089548"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "oop"], ["created_at", "2020-09-26 15:41:26.092398"], ["updated_at", "2020-09-26 15:41:26.092398"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "variable"], ["created_at", "2020-09-26 15:41:26.094981"], ["updated_at", "2020-09-26 15:41:26.094981"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "method"], ["created_at", "2020-09-26 15:41:26.097483"], ["updated_at", "2020-09-26 15:41:26.097483"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "object (Ruby)"], ["created_at", "2020-09-26 15:41:26.099889"], ["updated_at", "2020-09-26 15:41:26.099889"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "hash"], ["created_at", "2020-09-26 15:41:26.102181"], ["updated_at", "2020-09-26 15:41:26.102181"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "array (Ruby)"], ["created_at", "2020-09-26 15:41:26.104510"], ["updated_at", "2020-09-26 15:41:26.104510"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "variable (Ruby)"], ["created_at", "2020-09-26 15:41:26.106826"], ["updated_at", "2020-09-26 15:41:26.106826"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "instance"], ["created_at", "2020-09-26 15:41:26.109395"], ["updated_at", "2020-09-26 15:41:26.109395"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "argument"], ["created_at", "2020-09-26 15:41:26.111803"], ["updated_at", "2020-09-26 15:41:26.111803"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "parameter"], ["created_at", "2020-09-26 15:41:26.114428"], ["updated_at", "2020-09-26 15:41:26.114428"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "instance variable"], ["created_at", "2020-09-26 15:41:26.117075"], ["updated_at", "2020-09-26 15:41:26.117075"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "class variable"], ["created_at", "2020-09-26 15:41:26.119749"], ["updated_at", "2020-09-26 15:41:26.119749"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "instance method"], ["created_at", "2020-09-26 15:41:26.122063"], ["updated_at", "2020-09-26 15:41:26.122063"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "class method"], ["created_at", "2020-09-26 15:41:26.124557"], ["updated_at", "2020-09-26 15:41:26.124557"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "attr_reader"], ["created_at", "2020-09-26 15:41:26.127036"], ["updated_at", "2020-09-26 15:41:26.127036"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "attr_writer"], ["created_at", "2020-09-26 15:41:26.129659"], ["updated_at", "2020-09-26 15:41:26.129659"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "attr_accessor"], ["created_at", "2020-09-26 15:41:26.132225"], ["updated_at", "2020-09-26 15:41:26.132225"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "has_many"], ["created_at", "2020-09-26 15:41:26.134575"], ["updated_at", "2020-09-26 15:41:26.134575"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "belongs_to"], ["created_at", "2020-09-26 15:41:26.137039"], ["updated_at", "2020-09-26 15:41:26.137039"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "has_many through"], ["created_at", "2020-09-26 15:41:26.139524"], ["updated_at", "2020-09-26 15:41:26.139524"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "hash"], ["created_at", "2020-09-26 15:41:26.141826"], ["updated_at", "2020-09-26 15:41:26.141826"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "schema"], ["created_at", "2020-09-26 15:41:26.144726"], ["updated_at", "2020-09-26 15:41:26.144726"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "initialize"], ["created_at", "2020-09-26 15:41:26.147237"], ["updated_at", "2020-09-26 15:41:26.147237"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "joiner"], ["created_at", "2020-09-26 15:41:26.149591"], ["updated_at", "2020-09-26 15:41:26.149591"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "attribute"], ["created_at", "2020-09-26 15:41:26.152073"], ["updated_at", "2020-09-26 15:41:26.152073"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "active record"], ["created_at", "2020-09-26 15:41:26.154752"], ["updated_at", "2020-09-26 15:41:26.154752"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "rake"], ["created_at", "2020-09-26 15:41:26.164913"], ["updated_at", "2020-09-26 15:41:26.164913"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "gem"], ["created_at", "2020-09-26 15:41:26.168074"], ["updated_at", "2020-09-26 15:41:26.168074"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "gemfile"], ["created_at", "2020-09-26 15:41:26.171150"], ["updated_at", "2020-09-26 15:41:26.171150"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "crud"], ["created_at", "2020-09-26 15:41:26.173821"], ["updated_at", "2020-09-26 15:41:26.173821"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "mass assignment"], ["created_at", "2020-09-26 15:41:26.176692"], ["updated_at", "2020-09-26 15:41:26.176692"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "rollback"], ["created_at", "2020-09-26 15:41:26.179320"], ["updated_at", "2020-09-26 15:41:26.179320"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "migration"], ["created_at", "2020-09-26 15:41:26.181792"], ["updated_at", "2020-09-26 15:41:26.181792"]]
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "database table"], ["created_at", "2020-09-26 15:41:26.184111"], ["updated_at", "2020-09-26 15:41:26.184111"]]
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "iterate"], ["created_at", "2020-09-26 15:41:26.186602"], ["updated_at", "2020-09-26 15:41:26.186602"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "bundle"], ["created_at", "2020-09-26 15:41:26.189031"], ["updated_at", "2020-09-26 15:41:26.189031"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "faker"], ["created_at", "2020-09-26 15:41:26.191671"], ["updated_at", "2020-09-26 15:41:26.191671"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "tty prompt"], ["created_at", "2020-09-26 15:41:26.194458"], ["updated_at", "2020-09-26 15:41:26.194458"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "seed"], ["created_at", "2020-09-26 15:41:26.196821"], ["updated_at", "2020-09-26 15:41:26.196821"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "byebug"], ["created_at", "2020-09-26 15:41:26.199174"], ["updated_at", "2020-09-26 15:41:26.199174"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "action"], ["created_at", "2020-09-26 15:41:26.201515"], ["updated_at", "2020-09-26 15:41:26.201515"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "show action"], ["created_at", "2020-09-26 15:41:26.203824"], ["updated_at", "2020-09-26 15:41:26.203824"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "index action"], ["created_at", "2020-09-26 15:41:26.206120"], ["updated_at", "2020-09-26 15:41:26.206120"]]
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "new action"], ["created_at", "2020-09-26 15:41:26.208271"], ["updated_at", "2020-09-26 15:41:26.208271"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "edit action"], ["created_at", "2020-09-26 15:41:26.210563"], ["updated_at", "2020-09-26 15:41:26.210563"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.5ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "create action"], ["created_at", "2020-09-26 15:41:26.212791"], ["updated_at", "2020-09-26 15:41:26.212791"]]
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.4ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "destroy action"], ["created_at", "2020-09-26 15:41:26.215360"], ["updated_at", "2020-09-26 15:41:26.215360"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "update action"], ["created_at", "2020-09-26 15:41:26.218253"], ["updated_at", "2020-09-26 15:41:26.218253"]]
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "path helpers"], ["created_at", "2020-09-26 15:41:26.220417"], ["updated_at", "2020-09-26 15:41:26.220417"]]
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "HTML helpers"], ["created_at", "2020-09-26 15:41:26.222617"], ["updated_at", "2020-09-26 15:41:26.222617"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "partials"], ["created_at", "2020-09-26 15:41:26.225224"], ["updated_at", "2020-09-26 15:41:26.225224"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "layouts"], ["created_at", "2020-09-26 15:41:26.227452"], ["updated_at", "2020-09-26 15:41:26.227452"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "validations"], ["created_at", "2020-09-26 15:41:26.229993"], ["updated_at", "2020-09-26 15:41:26.229993"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "link_to"], ["created_at", "2020-09-26 15:41:26.232309"], ["updated_at", "2020-09-26 15:41:26.232309"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "button_to"], ["created_at", "2020-09-26 15:41:26.234934"], ["updated_at", "2020-09-26 15:41:26.234934"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "collection_select"], ["created_at", "2020-09-26 15:41:26.237457"], ["updated_at", "2020-09-26 15:41:26.237457"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "redirect"], ["created_at", "2020-09-26 15:41:26.239739"], ["updated_at", "2020-09-26 15:41:26.239739"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "render (Ruby)"], ["created_at", "2020-09-26 15:41:26.250456"], ["updated_at", "2020-09-26 15:41:26.250456"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "bcrypt"], ["created_at", "2020-09-26 15:41:26.252958"], ["updated_at", "2020-09-26 15:41:26.252958"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "named scope"], ["created_at", "2020-09-26 15:41:26.255508"], ["updated_at", "2020-09-26 15:41:26.255508"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "guard clause"], ["created_at", "2020-09-26 15:41:26.258516"], ["updated_at", "2020-09-26 15:41:26.258516"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "associations"], ["created_at", "2020-09-26 15:41:26.261996"], ["updated_at", "2020-09-26 15:41:26.261996"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "flash hash"], ["created_at", "2020-09-26 15:41:26.265043"], ["updated_at", "2020-09-26 15:41:26.265043"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "private method"], ["created_at", "2020-09-26 15:41:26.267943"], ["updated_at", "2020-09-26 15:41:26.267943"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "cli"], ["created_at", "2020-09-26 15:41:26.270686"], ["updated_at", "2020-09-26 15:41:26.270686"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "setter_method"], ["created_at", "2020-09-26 15:41:26.273166"], ["updated_at", "2020-09-26 15:41:26.273166"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "getter_method"], ["created_at", "2020-09-26 15:41:26.275631"], ["updated_at", "2020-09-26 15:41:26.275631"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "reader_method"], ["created_at", "2020-09-26 15:41:26.278136"], ["updated_at", "2020-09-26 15:41:26.278136"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "writer_method"], ["created_at", "2020-09-26 15:41:26.280916"], ["updated_at", "2020-09-26 15:41:26.280916"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "object oriented programming"], ["created_at", "2020-09-26 15:41:26.283464"], ["updated_at", "2020-09-26 15:41:26.283464"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "functional programming"], ["created_at", "2020-09-26 15:41:26.285681"], ["updated_at", "2020-09-26 15:41:26.285681"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.3ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "erd"], ["created_at", "2020-09-26 15:41:26.288271"], ["updated_at", "2020-09-26 15:41:26.288271"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "Entity Relationship Diagram"], ["created_at", "2020-09-26 15:41:26.291188"], ["updated_at", "2020-09-26 15:41:26.291188"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "domain model"], ["created_at", "2020-09-26 15:41:26.293805"], ["updated_at", "2020-09-26 15:41:26.293805"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "one-to-many relationship"], ["created_at", "2020-09-26 15:41:26.297104"], ["updated_at", "2020-09-26 15:41:26.297104"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "many_to_many relationship"], ["created_at", "2020-09-26 15:41:26.300122"], ["updated_at", "2020-09-26 15:41:26.300122"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "json"], ["created_at", "2020-09-26 15:41:26.302560"], ["updated_at", "2020-09-26 15:41:26.302560"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "api"], ["created_at", "2020-09-26 15:41:26.305068"], ["updated_at", "2020-09-26 15:41:26.305068"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "get request"], ["created_at", "2020-09-26 15:41:26.307521"], ["updated_at", "2020-09-26 15:41:26.307521"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "put request"], ["created_at", "2020-09-26 15:41:26.309924"], ["updated_at", "2020-09-26 15:41:26.309924"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "patch request"], ["created_at", "2020-09-26 15:41:26.312118"], ["updated_at", "2020-09-26 15:41:26.312118"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "delete request"], ["created_at", "2020-09-26 15:41:26.314493"], ["updated_at", "2020-09-26 15:41:26.314493"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "post request"], ["created_at", "2020-09-26 15:41:26.316994"], ["updated_at", "2020-09-26 15:41:26.316994"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "web scraping"], ["created_at", "2020-09-26 15:41:26.319327"], ["updated_at", "2020-09-26 15:41:26.319327"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "server"], ["created_at", "2020-09-26 15:41:26.321671"], ["updated_at", "2020-09-26 15:41:26.321671"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "client"], ["created_at", "2020-09-26 15:41:26.323969"], ["updated_at", "2020-09-26 15:41:26.323969"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "uri"], ["created_at", "2020-09-26 15:41:26.326521"], ["updated_at", "2020-09-26 15:41:26.326521"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.3ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "url"], ["created_at", "2020-09-26 15:41:26.329231"], ["updated_at", "2020-09-26 15:41:26.329231"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "rest"], ["created_at", "2020-09-26 15:41:26.339714"], ["updated_at", "2020-09-26 15:41:26.339714"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "sessions"], ["created_at", "2020-09-26 15:41:26.342176"], ["updated_at", "2020-09-26 15:41:26.342176"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "cookies"], ["created_at", "2020-09-26 15:41:26.344734"], ["updated_at", "2020-09-26 15:41:26.344734"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "debugging"], ["created_at", "2020-09-26 15:41:26.347371"], ["updated_at", "2020-09-26 15:41:26.347371"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "crud"], ["created_at", "2020-09-26 15:41:26.349998"], ["updated_at", "2020-09-26 15:41:26.349998"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "function (JS)"], ["created_at", "2020-09-26 15:41:26.352716"], ["updated_at", "2020-09-26 15:41:26.352716"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "callback (JS)"], ["created_at", "2020-09-26 15:41:26.355275"], ["updated_at", "2020-09-26 15:41:26.355275"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "hoisting"], ["created_at", "2020-09-26 15:41:26.357985"], ["updated_at", "2020-09-26 15:41:26.357985"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "function expression"], ["created_at", "2020-09-26 15:41:26.360845"], ["updated_at", "2020-09-26 15:41:26.360845"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "function invocation"], ["created_at", "2020-09-26 15:41:26.363538"], ["updated_at", "2020-09-26 15:41:26.363538"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "function definition"], ["created_at", "2020-09-26 15:41:26.366049"], ["updated_at", "2020-09-26 15:41:26.366049"]]
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "debugger"], ["created_at", "2020-09-26 15:41:26.368249"], ["updated_at", "2020-09-26 15:41:26.368249"]]
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "console.log"], ["created_at", "2020-09-26 15:41:26.370689"], ["updated_at", "2020-09-26 15:41:26.370689"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "let"], ["created_at", "2020-09-26 15:41:26.373220"], ["updated_at", "2020-09-26 15:41:26.373220"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "const"], ["created_at", "2020-09-26 15:41:26.375505"], ["updated_at", "2020-09-26 15:41:26.375505"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "var"], ["created_at", "2020-09-26 15:41:26.377745"], ["updated_at", "2020-09-26 15:41:26.377745"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "variable (JS)"], ["created_at", "2020-09-26 15:41:26.380004"], ["updated_at", "2020-09-26 15:41:26.380004"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "array (JS)"], ["created_at", "2020-09-26 15:41:26.382267"], ["updated_at", "2020-09-26 15:41:26.382267"]]
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "object (JS)"], ["created_at", "2020-09-26 15:41:26.384359"], ["updated_at", "2020-09-26 15:41:26.384359"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "DOM"], ["created_at", "2020-09-26 15:41:26.386669"], ["updated_at", "2020-09-26 15:41:26.386669"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "package"], ["created_at", "2020-09-26 15:41:26.388933"], ["updated_at", "2020-09-26 15:41:26.388933"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "npm"], ["created_at", "2020-09-26 15:41:26.391437"], ["updated_at", "2020-09-26 15:41:26.391437"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "node"], ["created_at", "2020-09-26 15:41:26.393995"], ["updated_at", "2020-09-26 15:41:26.393995"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "document"], ["created_at", "2020-09-26 15:41:26.396625"], ["updated_at", "2020-09-26 15:41:26.396625"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "querySelector"], ["created_at", "2020-09-26 15:41:26.399068"], ["updated_at", "2020-09-26 15:41:26.399068"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "getElementById"], ["created_at", "2020-09-26 15:41:26.401348"], ["updated_at", "2020-09-26 15:41:26.401348"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "querySelectorAll"], ["created_at", "2020-09-26 15:41:26.403698"], ["updated_at", "2020-09-26 15:41:26.403698"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "localStorage"], ["created_at", "2020-09-26 15:41:26.406196"], ["updated_at", "2020-09-26 15:41:26.406196"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "anonymous function"], ["created_at", "2020-09-26 15:41:26.408463"], ["updated_at", "2020-09-26 15:41:26.408463"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "first-class functions"], ["created_at", "2020-09-26 15:41:26.410987"], ["updated_at", "2020-09-26 15:41:26.410987"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "eventListener"], ["created_at", "2020-09-26 15:41:26.420721"], ["updated_at", "2020-09-26 15:41:26.420721"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "ecma"], ["created_at", "2020-09-26 15:41:26.423165"], ["updated_at", "2020-09-26 15:41:26.423165"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "arrow function"], ["created_at", "2020-09-26 15:41:26.425794"], ["updated_at", "2020-09-26 15:41:26.425794"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "vanilla js"], ["created_at", "2020-09-26 15:41:26.428362"], ["updated_at", "2020-09-26 15:41:26.428362"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "JavaScript"], ["created_at", "2020-09-26 15:41:26.431189"], ["updated_at", "2020-09-26 15:41:26.431189"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.3ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "fetch"], ["created_at", "2020-09-26 15:41:26.435019"], ["updated_at", "2020-09-26 15:41:26.435019"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.4ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "memoization"], ["created_at", "2020-09-26 15:41:26.439241"], ["updated_at", "2020-09-26 15:41:26.439241"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.3ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "component"], ["created_at", "2020-09-26 15:41:26.444043"], ["updated_at", "2020-09-26 15:41:26.444043"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.3ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "props"], ["created_at", "2020-09-26 15:41:26.447382"], ["updated_at", "2020-09-26 15:41:26.447382"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.3ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "state"], ["created_at", "2020-09-26 15:41:26.451314"], ["updated_at", "2020-09-26 15:41:26.451314"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.3ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "jsx"], ["created_at", "2020-09-26 15:41:26.455723"], ["updated_at", "2020-09-26 15:41:26.455723"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.3ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "extends"], ["created_at", "2020-09-26 15:41:26.460266"], ["updated_at", "2020-09-26 15:41:26.460266"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.3ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "import"], ["created_at", "2020-09-26 15:41:26.464295"], ["updated_at", "2020-09-26 15:41:26.464295"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "export"], ["created_at", "2020-09-26 15:41:26.467876"], ["updated_at", "2020-09-26 15:41:26.467876"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "hooks"], ["created_at", "2020-09-26 15:41:26.471585"], ["updated_at", "2020-09-26 15:41:26.471585"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.3ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "react"], ["created_at", "2020-09-26 15:41:26.474856"], ["updated_at", "2020-09-26 15:41:26.474856"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "context"], ["created_at", "2020-09-26 15:41:26.478332"], ["updated_at", "2020-09-26 15:41:26.478332"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "src"], ["created_at", "2020-09-26 15:41:26.480787"], ["updated_at", "2020-09-26 15:41:26.480787"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "manifest"], ["created_at", "2020-09-26 15:41:26.483237"], ["updated_at", "2020-09-26 15:41:26.483237"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "lifecycle methods"], ["created_at", "2020-09-26 15:41:26.485918"], ["updated_at", "2020-09-26 15:41:26.485918"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "constructor"], ["created_at", "2020-09-26 15:41:26.488606"], ["updated_at", "2020-09-26 15:41:26.488606"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "render (React)"], ["created_at", "2020-09-26 15:41:26.491244"], ["updated_at", "2020-09-26 15:41:26.491244"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "componentDidMount"], ["created_at", "2020-09-26 15:41:26.494076"], ["updated_at", "2020-09-26 15:41:26.494076"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "shouldComponentUpdate"], ["created_at", "2020-09-26 15:41:26.496537"], ["updated_at", "2020-09-26 15:41:26.496537"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.3ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "componentDidCatch"], ["created_at", "2020-09-26 15:41:26.499317"], ["updated_at", "2020-09-26 15:41:26.499317"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.2ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "componentWillUnmount"], ["created_at", "2020-09-26 15:41:26.502209"], ["updated_at", "2020-09-26 15:41:26.502209"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.3ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "useState"], ["created_at", "2020-09-26 15:41:26.504997"], ["updated_at", "2020-09-26 15:41:26.504997"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.4ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "useEffect"], ["created_at", "2020-09-26 15:41:26.508468"], ["updated_at", "2020-09-26 15:41:26.508468"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mWord Create (0.3ms)[0m  [1m[32mINSERT INTO "words" ("content", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["content", "useRef"], ["created_at", "2020-09-26 15:41:26.511861"], ["updated_at", "2020-09-26 15:41:26.511861"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFavorite Create (0.3ms)[0m  [1m[32mINSERT INTO "favorites" ("priority_level", "user_id", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["priority_level", 5], ["user_id", 1], ["word_id", 11], ["created_at", "2020-09-26 15:41:26.531365"], ["updated_at", "2020-09-26 15:41:26.531365"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFavorite Create (0.2ms)[0m  [1m[32mINSERT INTO "favorites" ("priority_level", "user_id", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["priority_level", 3], ["user_id", 1], ["word_id", 6], ["created_at", "2020-09-26 15:41:26.534736"], ["updated_at", "2020-09-26 15:41:26.534736"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFavorite Create (0.2ms)[0m  [1m[32mINSERT INTO "favorites" ("priority_level", "user_id", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["priority_level", 3], ["user_id", 1], ["word_id", 5], ["created_at", "2020-09-26 15:41:26.537369"], ["updated_at", "2020-09-26 15:41:26.537369"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFavorite Create (0.3ms)[0m  [1m[32mINSERT INTO "favorites" ("priority_level", "user_id", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["priority_level", 5], ["user_id", 2], ["word_id", 8], ["created_at", "2020-09-26 15:41:26.540011"], ["updated_at", "2020-09-26 15:41:26.540011"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFavorite Create (0.3ms)[0m  [1m[32mINSERT INTO "favorites" ("priority_level", "user_id", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["priority_level", 5], ["user_id", 2], ["word_id", 7], ["created_at", "2020-09-26 15:41:26.543015"], ["updated_at", "2020-09-26 15:41:26.543015"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFavorite Create (0.2ms)[0m  [1m[32mINSERT INTO "favorites" ("priority_level", "user_id", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["priority_level", 5], ["user_id", 2], ["word_id", 4], ["created_at", "2020-09-26 15:41:26.545880"], ["updated_at", "2020-09-26 15:41:26.545880"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFavorite Create (0.2ms)[0m  [1m[32mINSERT INTO "favorites" ("priority_level", "user_id", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["priority_level", 5], ["user_id", 3], ["word_id", 7], ["created_at", "2020-09-26 15:41:26.548486"], ["updated_at", "2020-09-26 15:41:26.548486"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFavorite Create (0.2ms)[0m  [1m[32mINSERT INTO "favorites" ("priority_level", "user_id", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["priority_level", 5], ["user_id", 3], ["word_id", 4], ["created_at", "2020-09-26 15:41:26.551150"], ["updated_at", "2020-09-26 15:41:26.551150"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDefinition Create (0.3ms)[0m  [1m[32mINSERT INTO "definitions" ("content", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "'<%= %>': angry squid shoots ink or evaluates ruby code and prints"], ["word_id", 8], ["created_at", "2020-09-26 15:41:26.556365"], ["updated_at", "2020-09-26 15:41:26.556365"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDefinition Create (0.2ms)[0m  [1m[32mINSERT INTO "definitions" ("content", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Communicates between the model (database) and views (user interface/website/browser)"], ["word_id", 2], ["created_at", "2020-09-26 15:41:26.559379"], ["updated_at", "2020-09-26 15:41:26.559379"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDefinition Create (0.3ms)[0m  [1m[32mINSERT INTO "definitions" ("content", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "A controller is the waiter; between the model and the view. It determines what the user will be doing/seeing based on the request"], ["word_id", 2], ["created_at", "2020-09-26 15:41:26.562313"], ["updated_at", "2020-09-26 15:41:26.562313"]]
+  [1m[35m (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDefinition Create (0.2ms)[0m  [1m[32mINSERT INTO "definitions" ("content", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "'<% %>': Ice cream cone evaluates ruby code but does not print"], ["word_id", 7], ["created_at", "2020-09-26 15:41:26.565528"], ["updated_at", "2020-09-26 15:41:26.565528"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDefinition Create (0.2ms)[0m  [1m[32mINSERT INTO "definitions" ("content", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "A blueprint for creating instances; manages data in the database"], ["word_id", 1], ["created_at", "2020-09-26 15:41:26.568551"], ["updated_at", "2020-09-26 15:41:26.568551"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDefinition Create (0.2ms)[0m  [1m[32mINSERT INTO "definitions" ("content", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Model-View-Controller, its a design pattern for building web applications  (chef, waiter, serving/dining table)"], ["word_id", 11], ["created_at", "2020-09-26 15:41:26.571423"], ["updated_at", "2020-09-26 15:41:26.571423"]]
+  [1m[35m (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDefinition Create (0.3ms)[0m  [1m[32mINSERT INTO "definitions" ("content", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "A hash with all the spicy user's input from the url input field or forms"], ["word_id", 3], ["created_at", "2020-09-26 15:41:26.574038"], ["updated_at", "2020-09-26 15:41:26.574038"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDefinition Create (0.2ms)[0m  [1m[32mINSERT INTO "definitions" ("content", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Client sends a requests to get information to/from the server"], ["word_id", 5], ["created_at", "2020-09-26 15:41:26.577297"], ["updated_at", "2020-09-26 15:41:26.577297"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDefinition Create (0.2ms)[0m  [1m[32mINSERT INTO "definitions" ("content", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "What server sends back to the user (client) after it processes the data"], ["word_id", 6], ["created_at", "2020-09-26 15:41:26.579890"], ["updated_at", "2020-09-26 15:41:26.579890"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDefinition Create (0.2ms)[0m  [1m[32mINSERT INTO "definitions" ("content", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "A route is a path that allows you access a page of your preference; it connects with an appropriate method and renders an appropriate view"], ["word_id", 9], ["created_at", "2020-09-26 15:41:26.582210"], ["updated_at", "2020-09-26 15:41:26.582210"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDefinition Create (0.2ms)[0m  [1m[32mINSERT INTO "definitions" ("content", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Rails safeguard against the meanies of the world -- it's a nested hash"], ["word_id", 4], ["created_at", "2020-09-26 15:41:26.584525"], ["updated_at", "2020-09-26 15:41:26.584525"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mDefinition Create (0.2ms)[0m  [1m[32mINSERT INTO "definitions" ("content", "word_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "The HTML files (what is displayed on the browser)"], ["word_id", 10], ["created_at", "2020-09-26 15:41:26.587080"], ["updated_at", "2020-09-26 15:41:26.587080"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m

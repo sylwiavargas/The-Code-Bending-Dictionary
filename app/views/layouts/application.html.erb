@@ -13,7 +13,7 @@
 
     <% if check_and_see_if_someone_is_logged_in? %>
       <nav>
-        LOGGED IN: <%= @current_student.first_name %> 
+        LOGGED IN: <%= @current_user.first_name %> 
 
         <%= button_to "LOG OUT", logout_path, method: :delete %>
       </nav>

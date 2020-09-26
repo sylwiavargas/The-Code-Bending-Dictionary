@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_03_180249) do
+ActiveRecord::Schema.define(version: 2020_08_31_165314) do
 
   create_table "definitions", force: :cascade do |t|
     t.string "content"
@@ -22,22 +22,20 @@ ActiveRecord::Schema.define(version: 2020_09_03_180249) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "priority_level"
-    t.integer "student_id", null: false
+    t.integer "user_id", null: false
     t.integer "word_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["student_id"], name: "index_favorites_on_student_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
     t.index ["word_id"], name: "index_favorites_on_word_id"
   end
 
-  create_table "students", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "nickname"
-    t.integer "age"
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "bio"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "password_digest"
   end
 
   create_table "words", force: :cascade do |t|
@@ -47,6 +45,6 @@ ActiveRecord::Schema.define(version: 2020_09_03_180249) do
   end
 
   add_foreign_key "definitions", "words"
-  add_foreign_key "favorites", "students"
+  add_foreign_key "favorites", "users"
   add_foreign_key "favorites", "words"
 end

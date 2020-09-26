@@ -4,20 +4,17 @@ Rails.application.routes.draw do
   resources :favorites, only: [:new, :create, :index]
   resources :words
 
-
-  get "/login", to: "students#login", as: "login"
-  post "/send_the_form_here", to: "students#handle_login"
-  delete "/logout", to: "students#logout", as: "logout"
-
-  get "/profile", to: "students#profile", as: "profile"
-  patch "/increase_age/:age_to_increase", to: "students#increase_age"
+  get "/login", to: "users#login", as: "login"
+  post "/send_the_form_here", to: "users#handle_login"
+  delete "/logout", to: "users#logout", as: "logout"
+  get "/profile", to: "users#profile", as: "profile"
   
-  get "/students", to: "students#index", as: "students" #students_path
-  get "/students/new", to: "students#new", as: "new_student"
-  post "/students", to: "students#create"
-  get "/students/:id", to: "students#show", as: "student" #student_path(id) or an instance student_path(@student)
-  get '/students/:id/edit', to: 'students#edit', as: 'edit_student'
-  patch '/students/:id', to: 'students#update'
-  delete 'students/:id', to: 'students#destroy'
+  get "/users", to: "users#index", as: "users" 
+  get "/users/new", to: "users#new", as: "new_student"
+  post "/users", to: "users#create"
+  get "/users/:id", to: "users#show", as: "student"
+  get '/users/:id/edit', to: 'users#edit', as: 'edit_student'
+  patch '/users/:id', to: 'users#update'
+  delete 'users/:id', to: 'users#destroy'
 
 end
