@@ -1,7 +1,7 @@
 # The Code-Bending Dictionary
 ---
 
-A volunteer dictionary of Ruby, Rails, JavaScript, React and Redux terms for the new code benders.
+The Code Bending Dictionary is an initiative aiming to help new code learners (code benders) in befriending tech vocab. We focus on general programming terms, or those relating to Ruby, Rails, JS, React, or Redux.
 
 The dictionary was an idea of **The Code Benders Cohort** of Flatiron School's Immersive Software Engineering Program, and was developed initially as a part of Ruby and Ruby on Rails lectures. 
 
