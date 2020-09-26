@@ -1,0 +1,15 @@
+<h1> <%= @student.full_name %></h1>
+
+<p> <strong> Age:</strong> <%= @student.age %>  years old </p>
+
+<h2> All of the favorite words of <%= @student.first_name.capitalize %> </h2>
+
+<ul>
+
+    <% @student.favorites.each do |fave_var| %>
+        <li><%=  fave_var.word %> | <%= fave_var.priority_level %> </li>
+    <% end %>
+    </ul>
+
+<hr>
+

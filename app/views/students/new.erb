@@ -1,0 +1,9 @@
+<h1> Add a new student! </h1>
+
+<% if @errors %>
+  <% @errors.each do |error|%>
+    <p style= "color: red"> <%= error %></p>
+  <% end %>
+<% end %>
+
+<%= render "student_form" %>

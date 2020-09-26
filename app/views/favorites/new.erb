@@ -1,0 +1,11 @@
+<h1> Favorite a word! </h1>
+
+<%= form_for @favorite do |f| %>
+    <%= f.label :priority_level %>
+    <%= f.number_field :priority_level %> <br>
+    
+    <%= f.label :word_id, "Word: " %>
+    <%= f.collection_select :word_id, @words, :id, :to_s %> <br>
+
+    <%= f.submit "Favorite it!" %>
+<% end %>
