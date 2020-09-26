@@ -107,11 +107,30 @@ Visit [issues](https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issue
 ### Contributors
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/sylwiavargas"><img src="https://avatars2.githubusercontent.com/u/45401242?s=460&u=2efe4366e8a6c7e8732daaaf8373250e7c8cfdd9&v=4" width="200px;" alt=""/><br /><sub><b>Sylwia Vargas</b></sub></a><br /><a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=sylwiavargas" title="Code">💻</a> <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues/created_by/sylwiavargas" title="Bug reports">🐛</a><a href="#infra-sylwia" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a><a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/master/README.md" title="Documentation">📖</a><a href="#ideas-sylwia" title="Ideas, Planning, & Feedback">💡</a></td>
+    <td align="center"><a href="https://github.com/sylwiavargas">
+      <img src="https://avatars2.githubusercontent.com/u/45401242?s=460&u=2efe4366e8a6c7e8732daaaf8373250e7c8cfdd9&v=4" width="200px;" alt=""/><br /><sub><b>Sylwia Vargas</b></sub></a><br />
+      <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=sylwiavargas" title="Code">💻</a> 
+      <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues/created_by/sylwiavargas" title="Bug reports">🐛</a>
+      <a href="#infra-sylwia" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a>
+      <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/master/README.md" title="Documentation">📖</a>
+      <a href="#ideas-sylwia" title="Ideas, Planning, & Feedback">💡</a>
+    </td>
     <td></td>
-    <td align="center"><a href="https://github.com/bigfishh"><img src="https://media-exp1.licdn.com/dms/image/C4E03AQE_xHTl1agOQw/profile-displayphoto-shrink_400_400/0?e=1606348800&v=beta&t=eoVEoDnSRXqKT1OvSAmPuspCnTnd0Rp0qMehn7QJPuo" width="200px;" alt=""/><br /><sub><b>Eric Kim</b></sub></a><br /><a href="#infra-eric" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues?q=is%3Aopen+is%3Aissue+hyeokjungkim" title="Bug reports">🐛</a><a href="#ideas-eric" title="Ideas, Planning, & Feedback">💡</a></td>
+    <td align="center">
+      <a href="https://github.com/bigfishh"><img src="https://media-exp1.licdn.com/dms/image/C4E03AQE_xHTl1agOQw/profile-displayphoto-shrink_400_400/0?e=1606348800&v=beta&t=eoVEoDnSRXqKT1OvSAmPuspCnTnd0Rp0qMehn7QJPuo" width="200px;" alt=""/><br /><sub><b>Eric Kim</b></sub></a><br />
+      <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=hyeokjungkim" title="Code">💻</a> 
+      <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues/created_by/hyeokjungkim" title="Bug reports">🐛</a>
+      <a href="#infra-sylwia" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a>
+      <a href="#ideas-eric" title="Ideas, Planning, & Feedback">💡</a>
+    </td>
     <td></td>
-    <td align="center"><a href="https://github.com/bigfishh"><img src="https://avatars1.githubusercontent.com/u/24644341?s=460&u=7baa784acadf9750b2a2ccaf696e71a1e4be8619&v=4" width="200px;" alt=""/><br /><sub><b>Annie Zheng</b></sub></a><br /><a href="#infra-annie" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues?q=is%3Aopen+is%3Aissue+bigfishh" title="Bug reports">🐛</a><a href="#ideas-annie" title="Ideas, Planning, & Feedback">💡</a></td>
+    <td align="center">
+      <a href="https://github.com/bigfishh"><img src="https://avatars1.githubusercontent.com/u/24644341?s=460&u=7baa784acadf9750b2a2ccaf696e71a1e4be8619&v=4" width="200px;" alt=""/><br /><sub><b>Annie Zheng</b></sub></a><br />
+      <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=bigfishh" title="Code">💻</a> 
+      <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues/created_by/bigfishh" title="Bug reports">🐛</a>
+      <a href="#infra-annie" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a>
+      <a href="#ideas-eric" title="Ideas, Planning, & Feedback">💡</a>
+    </td>
     </tr>
 </table>
 
