@@ -5,23 +5,12 @@ Rails.application.routes.draw do
   resources :words
 
 
-  # GET THE USER THE LOGIN FORM
   get "/login", to: "students#login", as: "login"
-  # HANDLE THE LOGIN FORM SUBMISSION
   post "/send_the_form_here", to: "students#handle_login"
   delete "/logout", to: "students#logout", as: "logout"
 
-
-
-
   get "/profile", to: "students#profile", as: "profile"
   patch "/increase_age/:age_to_increase", to: "students#increase_age"
-
-
-
-
-
-
   
   get "/students", to: "students#index", as: "students" #students_path
   get "/students/new", to: "students#new", as: "new_student"
