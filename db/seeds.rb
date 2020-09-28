@@ -2,7 +2,7 @@ puts "🧹 🧹 🧹 cleaning out the records... "
 
 Favorite.destroy_all
 Definition.destroy_all
-User.destroy_all
+# User.destroy_all
 Word.destroy_all
 # Language.destroy_all
 
@@ -10,15 +10,15 @@ puts "🌬 resets ids"
 
 Favorite.reset_pk_sequence
 Definition.reset_pk_sequence
-User.reset_pk_sequence
+# User.reset_pk_sequence
 Word.reset_pk_sequence
 # Language.reset_pk_sequence
 
 
-puts "creating users..."
-eric = User.create!(username: "erickim", password: "abc123")
-sylwia = User.create!(username: "sylwiavargas", password: "abc123")
-annie = User.create!(username: "anniezheng", password: "abc123")
+# puts "creating users..."
+# eric = User.create!(username: "erickim", password: "abc123")
+# sylwia = User.create!(username: "sylwiavargas", password: "abc123")
+# annie = User.create!(username: "anniezheng", password: "abc123")
 
 puts "creating words..."
 model = Word.create!(content: "Model")
@@ -182,15 +182,15 @@ use_state = Word.create!(content: "useState")
 use_effect = Word.create!(content: "useEffect")
 use_ref = Word.create!(content: "useRef")
 
-puts "creating favorites..."
-e_mvc = Favorite.create!(user: eric, word: mvc, priority_level: 5)
-e_response = Favorite.create!(user: eric, word: response, priority_level: 3)
-e_request = Favorite.create!(user: eric, word: request, priority_level: 3)
-s_a_s = Favorite.create!(user: sylwia, word: angry_squid, priority_level: 5)
-s_i_c_c = Favorite.create!(user: sylwia, word: ice_cream_cone, priority_level: 5)
-s_s_p = Favorite.create!(user: sylwia, word: strong_params, priority_level: 5)
-a_i_c_c = Favorite.create!(user: annie, word: ice_cream_cone, priority_level: 5)
-a_s_p = Favorite.create!(user: annie, word: strong_params, priority_level: 5)
+# puts "creating favorites..."
+# e_mvc = Favorite.create!(user: eric, word: mvc, priority_level: 5)
+# e_response = Favorite.create!(user: eric, word: response, priority_level: 3)
+# e_request = Favorite.create!(user: eric, word: request, priority_level: 3)
+# s_a_s = Favorite.create!(user: sylwia, word: angry_squid, priority_level: 5)
+# s_i_c_c = Favorite.create!(user: sylwia, word: ice_cream_cone, priority_level: 5)
+# s_s_p = Favorite.create!(user: sylwia, word: strong_params, priority_level: 5)
+# a_i_c_c = Favorite.create!(user: annie, word: ice_cream_cone, priority_level: 5)
+# a_s_p = Favorite.create!(user: annie, word: strong_params, priority_level: 5)
 
 
 puts "creating definitions..."

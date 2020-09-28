@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 2020_09_03_180249) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "definitions", force: :cascade do |t|
     t.string "content"
-    t.integer "word_id", null: false
+    t.bigint "word_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["word_id"], name: "index_definitions_on_word_id"
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 2020_09_03_180249) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer "priority_level"
-    t.integer "student_id", null: false
-    t.integer "word_id", null: false
+    t.bigint "student_id", null: false
+    t.bigint "word_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["student_id"], name: "index_favorites_on_student_id"
