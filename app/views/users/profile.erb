@@ -1,17 +1,13 @@
 <h1>Welcome to the Profile Page!</h1>
 
-<h2>Name: <%= @current_student.full_name %> </h2>
-
+<h2>Name: <%=@current_user.full_name %> </h2>
 
 <p> 
-    <strong> Age:</strong> <%= @current_student.age %> years old 
+    <strong> Age:</strong> <%=@current_user.age %> years old 
 </p>
-    
-<%= button_to "Increase Age", "/increase_age/#{10}", method: :patch %>
-
 <hr/>
 
-<%= form_for @current_student do |f| %>
+<%= form_for @current_user do |f| %>
     <%= f.label :first_name %>
     <%= f.text_field :first_name %> <br/>
     <%= f.label :last_name %>
