@@ -88,7 +88,7 @@ Go on [official Rails website](https://gorails.com/setup/windows/10) & follow th
 ```
 ***
 ## Domain model
-<!-- ![Domain model](ERD.png) -->
+![Domain model](ERD.png)
 
 
 ## Languages and Tools
