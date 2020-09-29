@@ -1,0 +1,9 @@
+<h1>Here are all your favorite words</h1>
+
+<ul>
+    <% @favorites.each do |fav_inst| %>
+        <li>
+            <%= fav_inst.word %>
+        </li>
+    <% end %>
+</ul>

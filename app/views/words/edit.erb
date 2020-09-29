@@ -1,0 +1,7 @@
+<h1> Edit <%= @word %> </h1>
+
+<%= form_for @word do |f| %>
+  <%= f.label :content, "The word:" %>
+  <%= f.text_field :content %> <br/>
+  <%= f.submit "Ready!" %>
+<% end %>

@@ -1,0 +1,9 @@
+<h1> Edit the definition for <%= @definition %> </h1>
+
+<%= form_for @definition do |f| %>
+  <%= f.label :content, "The definition:" %>
+  <%= f.text_area :content %> <br/>
+  <%= f.label :word_id, "The word:" %>
+  <%= f.collection_select :word_id, @words, :id, :content %> <br/>
+  <%= f.submit "Ready!" %>
+<% end %>

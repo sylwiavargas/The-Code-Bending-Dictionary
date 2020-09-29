@@ -1,0 +1,8 @@
+<h1> All the words</h1>
+
+<ul>
+    <% @words.map do |word_var|%>
+        <li> <%= link_to word_var.content.titleize, word_path(word_var) %> </li>
+    <%end%>
+
+</ul>

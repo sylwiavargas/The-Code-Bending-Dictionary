@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TheCodeBendingDictionary</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+    <% if check_and_see_if_someone_is_logged_in? %>
+      <nav>
+        LOGGED IN: <%= @current_student.first_name %> 
+
+        <%= button_to "LOG OUT", logout_path, method: :delete %>
+      </nav>
+    <% else %>
+      <nav> 
+        <%= link_to "LOGIN PATH CLICK HERE", login_path %>
+
+      </nav>
+    <% end %>
+
+
+
+
+    <%= yield %>
+
+    <footer>Hello, this is a footer</footer>
+    
+  </body>
+</html>

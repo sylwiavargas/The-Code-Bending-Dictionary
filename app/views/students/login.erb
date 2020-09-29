@@ -1,0 +1,17 @@
+<h1>Hello, This is Where the Login Form Goes</h1>
+
+
+
+<% if @error %>
+    <p><%= @error %></p>
+<% end %>
+
+<%# THE FORM BELOW MAKES A POST REQUEST TO "/send_the_form_here" %>
+
+<%= form_tag "/send_the_form_here" do %>
+    <%= label_tag :first_name %>
+    <%= text_field_tag :first_name %>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+    <%= submit_tag "Login!" %>
+<% end %>
