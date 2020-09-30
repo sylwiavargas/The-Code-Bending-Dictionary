@@ -5,8 +5,7 @@ class ApplicationController < ActionController::Base
     before_action :authorized_to_see_page
 
     def set_current_student
-        # INSTANCE VARIABLES IN A BEFORE ACTION IS AVAILABLE
-        @current_student = Student.find_by(id: session[:student_id])
+       @current_user = User.find_by(id: session[:user_id])
     end
 
     def check_and_see_if_someone_is_logged_in?
