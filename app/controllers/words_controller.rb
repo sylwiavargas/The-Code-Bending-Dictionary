@@ -30,7 +30,7 @@ class WordsController < ApplicationController
     end
   
     def word_params
-      params.require(:word).permit(:content)
+      params.require(:word).permit(:content, :approved)
     end
   
   end
