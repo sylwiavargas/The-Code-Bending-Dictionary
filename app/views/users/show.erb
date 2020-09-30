@@ -7,7 +7,7 @@
 <ul>
 
     <% @user.favorites.each do |fave_var| %>
-        <li><%=  fave_var.word %> | <%= fave_var.priority_level %> </li>
+        <li><%= fave_var.word %> </li>
     <% end %>
     </ul>
 
