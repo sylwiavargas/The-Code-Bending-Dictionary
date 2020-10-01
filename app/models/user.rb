@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :favorites, -> {order ("priority_level DESC")}, dependent: :destroy
+    has_many :favorites, dependent: :destroy
     has_many :words, through: :favorites
     default_scope { order(first_name: :asc)}
 
