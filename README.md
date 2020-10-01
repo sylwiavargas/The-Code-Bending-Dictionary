@@ -17,6 +17,8 @@ The dictionary was an idea of **The Code Benders Cohort** of Flatiron School's I
 - [Languages and tools](#languages-and-tools)
 - [Contributing](#contributing)
     - [Known Issues](#known-issues)
+    - [Core Team](#core-team)
+    - [Contributors](#contributors)
 - [License](#license)
 
 ## Getting Started
@@ -98,13 +100,14 @@ Go on [official Rails website](https://gorails.com/setup/windows/10) & follow th
 - [Active Record](https://guides.rubyonrails.org/active_record_basics.html) - Object Relational Mapping system
 
 ## Contributing
-Pull requests are welcome. Please make sure that your PR is [well-scoped](https://www.netlify.com/blog/2020/03/31/how-to-scope-down-prs/).
+Please read our [wiki on contributing](https://github.com/sylwiavargas/The-Code-Bending-Dictionary/wiki/3.-Contributing) and [code of conduct](https://github.com/sylwiavargas/The-Code-Bending-Dictionary/wiki/2.-Code-of-Conduct). 
+
 For major changes, please open an issue first to discuss what you would like to change. 
 
 ### Known issues
 Visit [issues](https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues) section.
 
-### Contributors
+### Core Team
 <table>
   <tr>
     <td align="center"><a href="https://github.com/sylwiavargas">
@@ -146,6 +149,9 @@ Visit [issues](https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issue
     </tr>
 </table>
 
+### Contributors
+Thank you! 
+[here will be your picture after your PR is merged]
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
