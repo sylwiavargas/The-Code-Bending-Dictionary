@@ -1,6 +1,7 @@
 class Definition < ApplicationRecord
   validate :right_number_of_words
   belongs_to :word
+  belongs_to :user
 
   def to_s
     self.content.downcase
