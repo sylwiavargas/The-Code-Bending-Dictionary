@@ -100,11 +100,7 @@ Go on [official Rails website](https://gorails.com/setup/windows/10) & follow th
 - [Active Record](https://guides.rubyonrails.org/active_record_basics.html) - Object Relational Mapping system
 
 ## Contributing
-<<<<<<< HEAD
 Please read our [wiki on contributing]( https://github.com/sylwiavargas/The-Code-Bending-Dictionary/wiki/3.-Contributing-to-the-Code-Bending-Dictionary) and [code of conduct](https://github.com/sylwiavargas/The-Code-Bending-Dictionary/wiki/2.-Code-of-Conduct). 
-=======
-Please read our [wiki on contributing](https://github.com/sylwiavargas/The-Code-Bending-Dictionary/wiki/3.-Contributing) and [code of conduct](https://github.com/sylwiavargas/The-Code-Bending-Dictionary/wiki/2.-Code-of-Conduct). 
->>>>>>> 2914f0751fd05c9b60262ab73d594c2c903b3c2a
 
 For major changes, please open an issue first to discuss what you would like to change. 
 
