@@ -199,6 +199,7 @@ controller_def = Definition.create!(content: "Communicates between the model (da
 controller_def_2 = Definition.create!(content: "A controller is the waiter; between the model and the view. It determines what the user will be doing/seeing based on the request", word: controller)
 ice_cream_cone_def = Definition.create!(content: "'<% %>': Ice cream cone evaluates ruby code but does not print", word: ice_cream_cone)
 model_def = Definition.create!(content: "A blueprint for creating instances; manages data in the database", word: model)
+module_def = Definition.create!(content: "Your personal toolbox of functions that can be called upon instead of repeating them in your code", word: module)
 mvc_def = Definition.create!(content: "Model-View-Controller, its a design pattern for building web applications  (chef, waiter, serving/dining table)", word: mvc)
 params_def = Definition.create!(content: "A hash with all the spicy user's input from the url input field or forms", word: params)
 equest_def = Definition.create!(content: "Client sends a requests to get information to/from the server", word: request)
