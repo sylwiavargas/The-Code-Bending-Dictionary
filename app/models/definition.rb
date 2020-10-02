@@ -17,17 +17,18 @@ class Definition < ApplicationRecord
   private
 
   def checks_read_more_at_and_url
-    if self.read_more_url && self.read_more_at == nil 
+    byebug
+    if self.read_more_url && !!self.read_more_at
       self.errors.add(:read_more_at, "must include a read_more_at if there is a read_more_url")
-    elsif self.read_more_url == nil && self.read_more_at
+    elsif !!self.read_more_url && self.read_more_at
       self.errors.add(:read_more_at, "must include a read_more_url if there is a read_more_at")
     end
   end
 
   def checks_meme_url_and_alt
-    if self.meme_url && self.meme_alt_text == nil 
+    if self.meme_url && !!self.meme_alt_text
       self.errors.add(:read_more_at, "must include a meme_alt_text if there is a meme_url")
-    elsif self.meme_url == nil && self.meme_alt_text
+    elsif !!self.meme_url && self.meme_alt_text
       self.errors.add(:read_more_at, "must include a meme_url if there is a meme_alt_text")
     end
   end
