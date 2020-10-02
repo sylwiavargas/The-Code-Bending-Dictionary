@@ -116,7 +116,7 @@ Visit [issues](https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issue
       <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues/created_by/sylwiavargas" title="Bug reports">🐛</a>
       <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues?q=assignee%3Asylwiavargas" title="Fixes">🛠</a>
       <a href="#infra-sylwia" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a>
-      <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/master/README.md" title="Documentation">📖</a>
+      <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/main/README.md" title="Documentation">📖</a>
       <a href="#ideas-sylwia" title="Ideas, Planning, & Feedback">💡</a>
     </td>
     <td></td>
