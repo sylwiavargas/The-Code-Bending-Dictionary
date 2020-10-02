@@ -194,10 +194,10 @@ use_ref = Word.create!(content: "useRef", approved: true)
 
 
 puts "creating definitions..."
-angry_squid_def = Definition.create!(content: "'<%= %>': angry squid shoots ink or evaluates ruby code and prints", word: angry_squid)
+angry_squid_def = Definition.create!(content: "'<%= %>': angry squid shoots ink or evaluates ruby code and prints", word: angry_squid, read_more_url: "https://dev.to/sylwiavargas/which-erb-tag-should-i-use-53f1", read_more_at: "Dev blog")
+ice_cream_cone_def = Definition.create!(content: "'<% %>': Ice cream cone evaluates ruby code but does not print", word: ice_cream_cone, read_more_url: "https://dev.to/sylwiavargas/which-erb-tag-should-i-use-53f1", read_more_at: "Dev blog")
 controller_def = Definition.create!(content: "Communicates between the model (database) and views (user interface/website/browser)", word: controller)
 controller_def_2 = Definition.create!(content: "A controller is the waiter; between the model and the view. It determines what the user will be doing/seeing based on the request", word: controller)
-ice_cream_cone_def = Definition.create!(content: "'<% %>': Ice cream cone evaluates ruby code but does not print", word: ice_cream_cone)
 model_def = Definition.create!(content: "A blueprint for creating instances; manages data in the database", word: model)
 mvc_def = Definition.create!(content: "Model-View-Controller, its a design pattern for building web applications  (chef, waiter, serving/dining table)", word: mvc)
 params_def = Definition.create!(content: "A hash with all the spicy user's input from the url input field or forms", word: params)
