@@ -196,6 +196,7 @@ use_ref = Word.create!(content: "useRef", approved: true)
 
 
 puts "creating definitions..."
+
 angry_squid_def = Definition.create!(user: User.first, approved: true, content: "'<%= %>': angry squid shoots ink or evaluates ruby code and prints", word: angry_squid)
 controller_def = Definition.create!(user: User.first, approved: true, content: "Communicates between the model (database) and views (user interface/website/browser)", word: controller)
 controller_def_2 = Definition.create!(user: User.first, approved: true, content: "A controller is the waiter; between the model and the view. It determines what the user will be doing/seeing based on the request", word: controller)
