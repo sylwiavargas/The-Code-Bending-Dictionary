@@ -21,7 +21,6 @@ Word.reset_pk_sequence
 # annie = User.create!(username: "anniezheng", password: "abc123")
 
 puts "creating words..."
-module = Word.create!(content: "Module", approved: true)
 model = Word.create!(content: "Model", approved: true)
 controller = Word.create!(content: "controller", approved: true)
 params = Word.create!(content: "params", approved: true)
