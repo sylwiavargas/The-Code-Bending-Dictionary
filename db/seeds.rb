@@ -23,6 +23,7 @@ foobar = User.create(first_name: "Foo", last_name: "Bar", nickname: "foobar", ag
 
 puts "creating words..."
 model = Word.create!(content: "Model", approved: true)
+module_word = Word.create!(content: "Module", approved: true)
 controller = Word.create!(content: "controller", approved: true)
 params = Word.create!(content: "params", approved: true)
 strong_params = Word.create!(content: "strong params", approved: true)
@@ -195,19 +196,20 @@ use_ref = Word.create!(content: "useRef", approved: true)
 
 
 puts "creating definitions..."
-angry_squid_def = Definition.create!(content: "'<%= %>': angry squid shoots ink or evaluates ruby code and prints", word: angry_squid, approved: true, user: User.first)
-controller_def = Definition.create!(content: "Communicates between the model (database) and views (user interface/website/browser)", word: controller, approved: true, user: User.first)
-controller_def_2 = Definition.create!(content: "A controller is the waiter; between the model and the view. It determines what the user will be doing/seeing based on the request", word: controller, approved: true, user: User.first)
-ice_cream_cone_def = Definition.create!(content: "'<% %>': Ice cream cone evaluates ruby code but does not print", word: ice_cream_cone, approved: true, user: User.first)
-model_def = Definition.create!(content: "A blueprint for creating instances; manages data in the database", word: model, approved: true, user: User.first)
-mvc_def = Definition.create!(content: "Model-View-Controller, its a design pattern for building web applications  (chef, waiter, serving/dining table)", word: mvc, approved: true, user: User.first)
-params_def = Definition.create!(content: "A hash with all the spicy user's input from the url input field or forms", word: params, approved: true, user: User.first)
-equest_def = Definition.create!(content: "Client sends a requests to get information to/from the server", word: request, approved: true, user: User.first)
-response_def = Definition.create!(content: "What server sends back to the user (client) after it processes the data", word: response, approved: true, user: User.first)
-route_def = Definition.create!(content: "A route is a path that allows you access a page of your preference; it connects with an appropriate method and renders an appropriate view", word: route, approved: true, user: User.first)
-strong_params_def = Definition.create!(content: "Rails safeguard against the meanies of the world -- it's a nested hash", word: strong_params, approved: true, user: User.first)
-view_def = Definition.create!(content: "The HTML files (what is displayed on the browser)", word: view, approved: true, user: User.first)
+angry_squid_def = Definition.create!(user: User.first, approved: true, content: "'<%= %>': angry squid shoots ink or evaluates ruby code and prints", word: angry_squid)
+controller_def = Definition.create!(user: User.first, approved: true, content: "Communicates between the model (database) and views (user interface/website/browser)", word: controller)
+controller_def_2 = Definition.create!(user: User.first, approved: true, content: "A controller is the waiter; between the model and the view. It determines what the user will be doing/seeing based on the request", word: controller)
+ice_cream_cone_def = Definition.create!(user: User.first, approved: true, content: "'<% %>': Ice cream cone evaluates ruby code but does not print", word: ice_cream_cone)
+model_def = Definition.create!(user: User.first, approved: true, content: "A blueprint for creating instances; manages data in the database", word: model)
+module_word_def_js = Definition.create!(user: User.first, approved: true, content: "Your personal toolbox of functions that can be called upon instead of repeating them in your code", word: module_word)
+module_word_def_ruby = Definition.create!(user: User.first, approved: true, content: "Your personal toolbox of methods that can be called upon instead of repeating them in your code", word: module_word)
+mvc_def = Definition.create!(user: User.first, approved: true, content: "Model-View-Controller, its a design pattern for building web applications  (chef, waiter, serving/dining table)", word: mvc)
+params_def = Definition.create!(user: User.first, approved: true, content: "A hash with all the spicy user's input from the url input field or forms", word: params)
+equest_def = Definition.create!(user: User.first, approved: true, content: "Client sends a requests to get information to/from the server", word: request)
+response_def = Definition.create!(user: User.first, approved: true, content: "What server sends back to the user (client) after it processes the data", word: response)
+route_def = Definition.create!(user: User.first, approved: true, content: "A route is a path that allows you access a page of your preference; it connects with an appropriate method and renders an appropriate view", word: route)
+strong_params_def = Definition.create!(user: User.first, approved: true, content: "Rails safeguard against the meanies of the world -- it's a nested hash", word: strong_params)
+view_def = Definition.create!(user: User.first, approved: true, content: "The HTML files (what is displayed on the browser)", word: view)
 
 puts "📚 📚 📚  let the show begin 📚 📚 📚 "
-
 
