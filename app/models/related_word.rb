@@ -1,0 +1,2 @@
+class RelatedWord < ApplicationRecord
+end
