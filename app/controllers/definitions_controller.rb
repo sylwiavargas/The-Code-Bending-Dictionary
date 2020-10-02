@@ -35,7 +35,7 @@ class DefinitionsController < ApplicationController
     end
   
     def definition_params
-      params.require(:definition).permit(:content, :word_id)
+      params.require(:definition).permit(:content, :word_id, :user_id, :read_more_url, :read_more_at, :meme_url, :meme_alt_text)
     end
   
   end

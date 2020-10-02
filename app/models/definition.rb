@@ -17,7 +17,6 @@ class Definition < ApplicationRecord
   private
 
   def checks_read_more_at_and_url
-    byebug
     if self.read_more_url && !!self.read_more_at
       self.errors.add(:read_more_at, "must include a read_more_at if there is a read_more_url")
     elsif !!self.read_more_url && self.read_more_at
