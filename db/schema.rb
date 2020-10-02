@@ -21,8 +21,10 @@ ActiveRecord::Schema.define(version: 2020_10_01_230802) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
-    t.string "read_more"
+    t.string "read_more_url"
+    t.string "read_more_at"
     t.string "meme_url"
+    t.string "meme_alt_text"
     t.boolean "approved"
     t.index ["user_id"], name: "index_definitions_on_user_id"
     t.index ["word_id"], name: "index_definitions_on_word_id"
