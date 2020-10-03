@@ -204,11 +204,8 @@ ice_cream_cone_def = Definition.create!(user: User.first, approved: true, conten
 model_def = Definition.create!(user: User.first, approved: true, content: "A blueprint for creating instances; manages data in the database", word: model, meme_url: "https://github.com/sylwiavargas/schedules/blob/master/mod1-lectures/08-Classes-Instances-Attributes/dog-rb-2.png?raw=true", meme_alt_text: "a personified Ruby assembles a dog following an Ikea-like manual")
 
 # other available definitions:
-angry_squid_def = Definition.create!(user: User.first, approved: true, content: "'<%= %>': angry squid shoots ink or evaluates ruby code and prints", word: angry_squid)
 controller_def = Definition.create!(user: User.first, approved: true, content: "Communicates between the model (database) and views (user interface/website/browser)", word: controller)
 controller_def_2 = Definition.create!(user: User.first, approved: true, content: "A controller is the waiter; between the model and the view. It determines what the user will be doing/seeing based on the request", word: controller)
-ice_cream_cone_def = Definition.create!(user: User.first, approved: true, content: "'<% %>': Ice cream cone evaluates ruby code but does not print", word: ice_cream_cone)
-model_def = Definition.create!(user: User.first, approved: true, content: "A blueprint for creating instances; manages data in the database", word: model)
 module_word_def_js = Definition.create!(user: User.first, approved: true, content: "Your personal toolbox of functions that can be called upon instead of repeating them in your code", word: module_word)
 module_word_def_ruby = Definition.create!(user: User.first, approved: true, content: "Your personal toolbox of methods that can be called upon instead of repeating them in your code", word: module_word)
 mvc_def = Definition.create!(user: User.first, approved: true, content: "Model-View-Controller, its a design pattern for building web applications  (chef, waiter, serving/dining table)", word: mvc)
