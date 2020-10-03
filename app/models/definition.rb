@@ -3,6 +3,7 @@ class Definition < ApplicationRecord
 
   belongs_to :word
   belongs_to :user
+  belongs_to :technology
 
   validate :right_number_of_words, :checks_read_more_at_and_url, :checks_meme_url_and_alt
 

@@ -7,6 +7,7 @@ class Word < ApplicationRecord
 
     has_many :rel_word_models, foreign_key: :word_one_id, class_name: "RelatedWord", dependent: :destroy
     has_many :related_words, through: :rel_word_models, source: :word_two
+    has_many :technologies, through: :definitions
 
     def init
         self.approved = false if self.approved.nil?
