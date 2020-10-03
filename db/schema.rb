@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 2020_10_02_131844) do
     t.bigint "word_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.string "read_more_url"
+    t.string "read_more_at"
+    t.string "meme_url"
+    t.string "meme_alt_text"
+    t.boolean "approved"
+    t.index ["user_id"], name: "index_definitions_on_user_id"
     t.index ["word_id"], name: "index_definitions_on_word_id"
   end
 
@@ -56,6 +63,7 @@ ActiveRecord::Schema.define(version: 2020_10_02_131844) do
     t.boolean "approved"
   end
 
+  add_foreign_key "definitions", "users"
   add_foreign_key "definitions", "words"
   add_foreign_key "favorites", "users"
   add_foreign_key "favorites", "words"
