@@ -194,7 +194,7 @@ use_ref = Word.create!(content: "useRef", approved: true)
 
 
 puts "creating definitions..."
-angry_squid_def = Definition.create!(content: "'<%= %>': angry squid shoots ink or evaluates ruby code and prints", word: angry_squid)
+angry_squid_def = Definition.create!(content: "'<%= %>': angry squid shoots ink or evaluates ruby code and prints", word: angry_squid, meme_url: "https://res.cloudinary.com/practicaldev/image/fetch/s--XEpd1g3r--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/qi9kko95vgpn0iknjaq0.png")
 controller_def = Definition.create!(content: "Communicates between the model (database) and views (user interface/website/browser)", word: controller)
 controller_def_2 = Definition.create!(content: "A controller is the waiter; between the model and the view. It determines what the user will be doing/seeing based on the request", word: controller)
 ice_cream_cone_def = Definition.create!(content: "'<% %>': Ice cream cone evaluates ruby code but does not print", word: ice_cream_cone)
@@ -206,7 +206,7 @@ response_def = Definition.create!(content: "What server sends back to the user (
 route_def = Definition.create!(content: "A route is a path that allows you access a page of your preference; it connects with an appropriate method and renders an appropriate view", word: route)
 strong_params_def = Definition.create!(content: "Rails safeguard against the meanies of the world -- it's a nested hash", word: strong_params)
 view_def = Definition.create!(content: "The HTML files (what is displayed on the browser)", word: view)
-
+associations_def = Definition.create!(content: "The HTML files (what is displayed on the browser)", word: associations, read_more_url: "https://medium.com/swlh/the-simplest-way-to-understand-associations-in-rails-dc03cfe067f2")
 puts "📚 📚 📚  let the show begin 📚 📚 📚 "
 
 

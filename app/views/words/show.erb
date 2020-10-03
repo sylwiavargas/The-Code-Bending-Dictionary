@@ -4,6 +4,18 @@
 <ul>
 <% @word.definitions.each do |definition| %>
     <li> <%= definition.content %></li>
+    <li> read more at 🤓:
+    <% if definition.read_more_url? %>
+      <%=link_to definition.read_more_url, definition.read_more_url %></li>
+      <br>
+    <% end %>
+    
+    <% if definition.meme_url? %>
+        <li> check this meme 😏: 
+        <br>
+        <%= link_to image_tag(definition.meme_url, :width => "250", :crop => :fill), definition.meme_url %></li>
+    <% end %>
+
     <%= button_to " 🗑 ", @definition, :method => :delete %>
     <%= link_to " 📝 ", edit_definition_path(definition) %>
     <hr>
