@@ -4,6 +4,7 @@ Favorite.destroy_all
 Definition.destroy_all
 User.destroy_all
 Word.destroy_all
+Vote.destroy_all
 # Language.destroy_all
 
 puts "🌬 resets ids"
@@ -12,11 +13,13 @@ Favorite.reset_pk_sequence
 Definition.reset_pk_sequence
 User.reset_pk_sequence
 Word.reset_pk_sequence
+Vote.reset_pk_sequence
 # Language.reset_pk_sequence
 
 
 puts "creating users..."
 foobar = User.create(first_name: "Foo", last_name: "Bar", nickname: "foobar", age: 1000, password: "abc123")
+clara = User.create(first_name: "Clara", last_name: "Del Valle", nickname: "clarividente", age: 21, password: "barrabas")
 # eric = User.create!(username: "erickim", password: "abc123")
 # sylwia = User.create!(username: "sylwiavargas", password: "abc123")
 # annie = User.create!(username: "anniezheng", password: "abc123")
@@ -215,5 +218,11 @@ response_def = Definition.create!(user: User.first, approved: true, content: "Wh
 route_def = Definition.create!(user: User.first, approved: true, content: "A route is a path that allows you access a page of your preference; it connects with an appropriate method and renders an appropriate view", word: route)
 strong_params_def = Definition.create!(user: User.first, approved: true, content: "Rails safeguard against the meanies of the world -- it's a nested hash", word: strong_params)
 view_def = Definition.create!(user: User.first, approved: true, content: "The HTML files (what is displayed on the browser)", word: view)
+
+puts "creating votes..."
+
+model_def_vote_foobar = Vote.create!(user: foobar, definition: model_def) # value 1
+model_def_vote_clara = Vote.create!(user: clara, definition: model_def) # value 1
+controller_def_2_vote_clara = Vote.create!(user: clara, definition: controller_def_2, value: 10)
 
 puts "📚 📚 📚  let the show begin 📚 📚 📚 "
