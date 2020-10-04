@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_03_171854) do
+ActiveRecord::Schema.define(version: 2020_10_02_131844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,9 +20,13 @@ ActiveRecord::Schema.define(version: 2020_10_03_171854) do
     t.bigint "word_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
     t.string "read_more_url"
+    t.string "read_more_at"
     t.string "meme_url"
-    t.index ["word_id"], name: "index_definitions_on_word_id"
+    t.string "meme_alt_text"
+    t.boolean "approved"
+    t.index ["user_id"], name: "index_definitions_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -32,6 +36,13 @@ ActiveRecord::Schema.define(version: 2020_10_03_171854) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_favorites_on_user_id"
     t.index ["word_id"], name: "index_favorites_on_word_id"
+  end
+
+  create_table "related_words", force: :cascade do |t|
+    t.integer "word_one_id"
+    t.integer "word_two_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_10_03_171854) do
     t.boolean "approved"
   end
 
+  add_foreign_key "definitions", "users"
   add_foreign_key "definitions", "words"
   add_foreign_key "favorites", "users"
   add_foreign_key "favorites", "words"
