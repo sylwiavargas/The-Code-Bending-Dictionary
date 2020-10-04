@@ -1,9 +1,8 @@
 class Definition < ApplicationRecord
   after_initialize :init
-
   belongs_to :word
   belongs_to :user
-
+  has_many :votes, dependent: :destroy
   validate :right_number_of_words, :checks_read_more_at_and_url, :checks_meme_url_and_alt
 
   def init
