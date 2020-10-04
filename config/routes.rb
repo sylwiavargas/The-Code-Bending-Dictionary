@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   resources :definitions, only: [:new, :create, :update, :edit, :delete]
+  resources :votes, only: [:new, :create, :update, :edit, :delete]
   resources :favorites, only: [:new, :create, :index]
   resources :words
 
