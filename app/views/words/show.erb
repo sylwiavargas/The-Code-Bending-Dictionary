@@ -4,14 +4,17 @@
 <ul>
 <% @word.definitions.each do |definition| %>
     <li> <%= definition.content %></li>
-    <li> read more at 🤓:
     <% if definition.read_more_url? %>
-      <%=link_to definition.read_more_url, definition.read_more_url %></li>
-      <br>
+      <% definition.each do |read| %>
+          <li> read more at 🤓
+          <br>
+          <%=link_to read.read_more_at, read.read_more_url %></li>
+          <br>
+      <%end%>
     <% end %>
     
     <% if definition.meme_url? %>
-        <li> check this meme 😏: 
+        <li> check this meme 😏
         <br>
         <%= link_to image_tag(definition.meme_url, :width => "250", :crop => :fill), definition.meme_url %></li>
     <% end %>
@@ -25,3 +28,4 @@
 <%= link_to " ✳️ Add a new definition", new_definition_path %>
 <br><br><br>
 <%= button_to " 🚨 say bye to '#{@word.content.downcase}'", @word, :method => :delete %>
+
