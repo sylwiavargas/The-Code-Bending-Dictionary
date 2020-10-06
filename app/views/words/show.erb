@@ -5,12 +5,10 @@
 <% @word.definitions.each do |definition| %>
     <li> <%= definition.content %></li>
     <% if definition.read_more_url? %>
-      <% definition.each do |read| %>
           <li> read more at 🤓
           <br>
-          <%=link_to read.read_more_at, read.read_more_url %></li>
+          <%=link_to definition.read_more_at, definition.read_more_url %></li>
           <br>
-      <%end%>
     <% end %>
     
     <% if definition.meme_url? %>
