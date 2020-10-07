@@ -10,7 +10,7 @@ class VotesController < ApplicationController
   end
 
   def update
-    @vote = Vote.create(vote_params)
+    @vote = Vote.update(vote_params)
     redirect_to votes_path
   end
 
