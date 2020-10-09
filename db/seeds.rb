@@ -231,6 +231,6 @@ response_def = Definition.create!(user: User.first, approved: true, content: "Wh
 route_def = Definition.create!(user: User.first, approved: true, content: "A route is a path that allows you access a page of your preference; it connects with an appropriate method and renders an appropriate view", word: route)
 strong_params_def = Definition.create!(user: User.first, approved: true, content: "Rails safeguard against the meanies of the world -- it's a nested hash", word: strong_params)
 view_def = Definition.create!(user: User.first, approved: true, content: "The HTML files (what is displayed on the browser)", word: view)
-
+web_scraping_def = Definition.create!(content: "In its simplest form, web scraping can be thought of as copying and pasting data from a website. In it's more complex form, it can be thought of as an automated process of collecting hundreds to billions of data points from the web.", word: web_scraping, language: general tech, read_more_URL:"https://www.scrapinghub.com/what-is-web-scraping/", read_more_at: "Scraping Hub", meme_URL:"https://www.octoparse.com/media/7179/find-data.jpg"
 puts "📚 📚 📚  let the show begin 📚 📚 📚 "
 
