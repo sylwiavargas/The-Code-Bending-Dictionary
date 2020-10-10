@@ -206,6 +206,7 @@ model_def = Definition.create!(content: "A blueprint for creating instances; man
 # other available definitions:
 controller_def = Definition.create!(content: "Communicates between the model (database) and views (user interface/website/browser)", word: controller)
 controller_def_2 = Definition.create!(content: "A controller is the waiter; between the model and the view. It determines what the user will be doing/seeing based on the request", word: controller)
+flash_hash_def = Definition.create!(content: "A way to pass information from one place to another ONLY ONCE (i.e. displaying on a login form the user entered the wrong password)", word: flash_hash, language: ruby, read_more: "url", meme: "url")
 model_def = Definition.create!(content: "A blueprint for creating instances; manages data in the database", word: model)
 module_word_def_js = Definition.create!(content: "Your personal toolbox of functions that can be called upon instead of repeating them in your code", word: module_word)
 module_word_def_ruby = Definition.create!(content: "Your personal toolbox of methods that can be called upon instead of repeating them in your code", word: module_word)
