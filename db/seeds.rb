@@ -206,6 +206,8 @@ model_def = Definition.create!(content: "A blueprint for creating instances; man
 # other available definitions:
 controller_def = Definition.create!(content: "Communicates between the model (database) and views (user interface/website/browser)", word: controller)
 controller_def_2 = Definition.create!(content: "A controller is the waiter; between the model and the view. It determines what the user will be doing/seeing based on the request", word: controller)
+crud=Definition.create!(content:"An acronym for CREATE, READ, UPDATE, and DELETE. These four functions persist and manipulate data in the database", word: crud)
+getter_method=Definition.create!(content: "This method is used to retrieve or GET a value of an instance variable", word: getter_method)
 model_def = Definition.create!(content: "A blueprint for creating instances; manages data in the database", word: model)
 module_word_def_js = Definition.create!(content: "Your personal toolbox of functions that can be called upon instead of repeating them in your code", word: module_word)
 module_word_def_ruby = Definition.create!(content: "Your personal toolbox of methods that can be called upon instead of repeating them in your code", word: module_word)
@@ -214,6 +216,7 @@ params_def = Definition.create!(content: "A hash with all the spicy user's input
 request_def = Definition.create!(content: "Client sends a requests to get information to/from the server", word: request)
 response_def = Definition.create!(content: "What server sends back to the user (client) after it processes the data", word: response)
 route_def = Definition.create!(content: "A route is a path that allows you access a page of your preference; it connects with an appropriate method and renders an appropriate view", word: route)
+setter_method=Definition.create!(content: "This method is used to SET or assign the value of an instance variable", word: setter_method)
 strong_params_def = Definition.create!(content: "Rails safeguard against the meanies of the world -- it's a nested hash", word: strong_params)
 view_def = Definition.create!(content: "The HTML files (what is displayed on the browser)", word: view)
 
