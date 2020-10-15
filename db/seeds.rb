@@ -206,6 +206,7 @@ model_def = Definition.create!(user: User.first, approved: true, content: "A blu
 # other available definitions:
 controller_def = Definition.create!(user: User.first, approved: true, content: "Communicates between the model (database) and views (user interface/website/browser)", word: controller)
 controller_def_2 = Definition.create!(user: User.first, approved: true, content: "A controller is the waiter; between the model and the view. It determines what the user will be doing/seeing based on the request", word: controller)
+flash_hash_def = Definition.create!(user: User.first, approved: true, content: "A way to pass information from one controller action to another ONLY ONCE (i.e. displaying on a login form the user entered the wrong password)", word: flash_hash)
 module_word_def_js = Definition.create!(user: User.first, approved: true, content: "Your personal toolbox of functions that can be called upon instead of repeating them in your code", word: module_word)
 module_word_def_ruby = Definition.create!(user: User.first, approved: true, content: "Your personal toolbox of methods that can be called upon instead of repeating them in your code", word: module_word)
 mvc_def = Definition.create!(user: User.first, approved: true, content: "Model-View-Controller, its a design pattern for building web applications  (chef, waiter, serving/dining table)", word: mvc)
