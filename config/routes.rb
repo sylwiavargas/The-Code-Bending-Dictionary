@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :technologies, only: [:show, :index]
   resources :definitions, only: [:new, :create, :update, :edit, :delete]
+  resources :votes, only: [:new, :create, :update, :edit, :delete]
   resources :favorites, only: [:new, :create, :index]
   resources :words
 
