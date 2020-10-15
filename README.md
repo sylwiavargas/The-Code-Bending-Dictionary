@@ -44,7 +44,7 @@ You will need to use a Terminal. On OS X, you can find the default terminal in
 
     # Install Ruby
     $ rbenv install 2.7.1
-    $ rbenv global 2.7.1
+    $ rbenv local 2.7.1
     $ ruby -v
 ```
 3. Install [Rails](https://rubyonrails.org/)
