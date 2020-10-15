@@ -11,10 +11,15 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2020_10_03_152900) do
 =======
 ActiveRecord::Schema.define(version: 2020_10_04_134236) do
 >>>>>>> GL/GerryLarios-Add-Votes-24
+=======
+
+ActiveRecord::Schema.define(version: 2020_09_30_011526) do
+>>>>>>> PD/panditita/read_more_and_meme_url
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +38,6 @@ ActiveRecord::Schema.define(version: 2020_10_04_134236) do
     t.bigint "technology_id", null: false
     t.index ["technology_id"], name: "index_definitions_on_technology_id"
     t.index ["user_id"], name: "index_definitions_on_user_id"
-    t.index ["word_id"], name: "index_definitions_on_word_id"
   end
 
   create_table "favorites", force: :cascade do |t|
