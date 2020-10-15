@@ -151,7 +151,15 @@ Visit [issues](https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issue
 
 ### Contributors
 Thank you! 
-[here will be your picture after your PR is merged]
+<table>
+    <tr>
+        <td align="center">
+            <a href="https://github.com/GerryLarios"><img src="https://avatars2.githubusercontent.com/u/24638424?s=460&u=c8533d234500806c6e520a4fd27aecf81c5cb2f4&v=4" width="200px;" alt=""/><br/><sub><b>Gerry Larios</b></sub></a><br/>
+            <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=GerryLarios" title="Code">💻</a> 
+            <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues?q=assignee%3AGerryLarios+" title="Bug reports">🐛</a>
+        </td>
+    </tr>
+</table>
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
