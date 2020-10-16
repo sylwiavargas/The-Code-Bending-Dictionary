@@ -158,6 +158,11 @@ Thank you!
             <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=GerryLarios" title="Code">💻</a> 
             <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues?q=assignee%3AGerryLarios+" title="Bug reports">🐛</a>
         </td>
+        <td></td>
+        <td align="center">
+            <a href="https://github.com/ChristyTropila"><img src="https://avatars1.githubusercontent.com/u/43776371?s=460&v=4" width="200px;" alt=""/><br/><sub><b>Gerry Larios</b></sub></a><br/>
+            <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=ChristyTropila" title="Code">💻</a> 
+        </td>
     </tr>
 </table>
 
