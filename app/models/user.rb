@@ -6,9 +6,9 @@ class User < ApplicationRecord
 
   default_scope { order(first_name: :asc)}
 
-  validates :first_name, presence: true, uniqueness: true
-  validates :last_name, presence: true, uniqueness: true
-  validates :age, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 13 }
+  # validates :first_name, presence: true, uniqueness: true
+  # validates :last_name, presence: true, uniqueness: true
+  # validates :age, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 13 }
 
   has_secure_password
 
