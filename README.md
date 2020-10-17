@@ -158,6 +158,21 @@ Thank you!
             <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=GerryLarios" title="Code">💻</a> 
             <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues?q=assignee%3AGerryLarios+" title="Bug reports">🐛</a>
         </td>
+        <td></td>
+        <td align="center">
+            <a href="https://github.com/ChristyTropila"><img src="https://avatars1.githubusercontent.com/u/43776371?s=460&v=4" width="200px;" alt=""/><br/><sub><b>Christy Tropila</b></sub></a><br/>
+            <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=ChristyTropila" title="Code">💻</a> 
+        </td>
+        <td></td>
+        <td align="center">
+            <a href="https://github.com/panditita"><img src="https://avatars2.githubusercontent.com/u/27155534?s=460&u=7ccf96facfb780c6ed4655e3835aa2af54fef6e2&v=4" width="200px;" alt=""/><br/><sub><b>Etzali</b></sub></a><br/>
+            <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=panditita" title="Code">💻</a> 
+        </td>
+        <td></td>
+        <td align="center">
+            <a href="https://github.com/wlcreate"><img src="https://avatars0.githubusercontent.com/u/62153993?s=460&u=0220110998b7ac03aee2206395330ba4798741e1&v=4" width="200px;" alt=""/><br/><sub><b>Waverley Leung</b></sub></a><br/>
+            <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=wlcreate" title="Code">💻</a> 
+        </td>
     </tr>
 </table>
 
