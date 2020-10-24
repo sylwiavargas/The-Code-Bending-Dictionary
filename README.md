@@ -44,7 +44,7 @@ You will need to use a Terminal. On OS X, you can find the default terminal in
 
     # Install Ruby
     $ rbenv install 2.7.1
-    $ rbenv global 2.7.1
+    $ rbenv local 2.7.1
     $ ruby -v
 ```
 3. Install [Rails](https://rubyonrails.org/)
@@ -151,7 +151,43 @@ Visit [issues](https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issue
 
 ### Contributors
 Thank you! 
-[here will be your picture after your PR is merged]
+<table>
+    <tr>
+        <td align="center">
+            <a href="https://github.com/naoufalelh"><img src="https://avatars1.githubusercontent.com/u/10200999?s=460&u=f908a2a1900497e6176b86ec9abd2a1750fb2e66&v=4" width="200px;" alt=""/><br/><sub><b>Naoufal El Hassnaoui</b></sub></a><br/>
+            <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=naoufalelh" title="Code">💻</a> 
+            <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues?q=assignee%3Anaoufalelh+" title="Bug reports">🐛</a>
+            <a href="#ideas-naoufal" title="Ideas, Planning, & Feedback">💡</a>
+        </td>
+        <td></td>
+        <td align="center">
+            <a href="https://github.com/GerryLarios"><img src="https://avatars2.githubusercontent.com/u/24638424?s=460&u=c8533d234500806c6e520a4fd27aecf81c5cb2f4&v=4" width="200px;" alt=""/><br/><sub><b>Gerry Larios</b></sub></a><br/>
+            <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=GerryLarios" title="Code">💻</a> 
+            <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues?q=assignee%3AGerryLarios+" title="Bug reports">🐛</a>
+        </td>
+        <td></td>
+        <td align="center">
+            <a href="https://github.com/ChristyTropila"><img src="https://avatars1.githubusercontent.com/u/43776371?s=460&v=4" width="200px;" alt=""/><br/><sub><b>Christy Tropila</b></sub></a><br/>
+            <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=ChristyTropila" title="Code">💻</a> 
+        </td>
+        <td></td>
+        <td align="center">
+            <a href="https://github.com/panditita"><img src="https://avatars2.githubusercontent.com/u/27155534?s=460&u=7ccf96facfb780c6ed4655e3835aa2af54fef6e2&v=4" width="200px;" alt=""/><br/><sub><b>Etzali</b></sub></a><br/>
+            <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=panditita" title="Code">💻</a> 
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td align="center">
+            <a href="https://github.com/wlcreate"><img src="https://avatars0.githubusercontent.com/u/62153993?s=460&u=0220110998b7ac03aee2206395330ba4798741e1&v=4" width="200px;" alt=""/><br/><sub><b>Waverley Leung</b></sub></a><br/>
+            <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=wlcreate" title="Code">💻</a> 
+        </td>
+        <td align="center">
+            <a href="https://github.com/jplessey"><img src="https://avatars2.githubusercontent.com/u/16312212?s=400&u=024b047d2afbb1f913cc3be22250c83af385b446&v=4" width="200px;" alt=""/><br/><sub><b>Juan Lessey</b></sub></a><br/>
+            <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=jplessey" title="Code">💻</a> 
+        </td>
+    </tr>
+</table>
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

@@ -21,5 +21,10 @@ Please check all that apply:
 - [ ] I have made corresponding changes to the documentation
 - [ ] My changes generate no new warnings and no new bugs
 
+# Contributors list
+Would you like to be featured on the [contributors list](https://github.com/sylwiavargas/The-Code-Bending-Dictionary#contributors)? If so, please tell us:
+- what name you'd like to be shown there?
+- we usually link github profile pic -- is that ok? If not, provide another url: 
+- we usually link your github profile but if you have a portfolio page, provide a link:
 
 ✨ ✨ ✨  Thank you for contributing to the Code Bending Dictionary ✨ ✨ ✨ 

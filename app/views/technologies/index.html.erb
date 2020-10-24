@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Technologies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @technologies.each do |technology| %>
+      <tr>
+        <td><%= technology.name %></td>
+        <td><%= link_to 'Show', technology %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

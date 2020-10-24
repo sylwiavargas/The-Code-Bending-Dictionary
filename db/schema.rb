@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_02_131844) do
+ActiveRecord::Schema.define(version: 2020_10_04_134236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2020_10_02_131844) do
     t.string "meme_url"
     t.string "meme_alt_text"
     t.boolean "approved"
+    t.bigint "technology_id", null: false
+    t.index ["technology_id"], name: "index_definitions_on_technology_id"
     t.index ["user_id"], name: "index_definitions_on_user_id"
     t.index ["word_id"], name: "index_definitions_on_word_id"
   end
@@ -46,6 +48,12 @@ ActiveRecord::Schema.define(version: 2020_10_02_131844) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "technologies", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -56,6 +64,16 @@ ActiveRecord::Schema.define(version: 2020_10_02_131844) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.integer "value", default: 1
+    t.bigint "user_id", null: false
+    t.bigint "definition_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["definition_id"], name: "index_votes_on_definition_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
+  end
+
   create_table "words", force: :cascade do |t|
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
@@ -63,8 +81,11 @@ ActiveRecord::Schema.define(version: 2020_10_02_131844) do
     t.boolean "approved"
   end
 
+  add_foreign_key "definitions", "technologies"
   add_foreign_key "definitions", "users"
   add_foreign_key "definitions", "words"
   add_foreign_key "favorites", "users"
   add_foreign_key "favorites", "words"
+  add_foreign_key "votes", "definitions"
+  add_foreign_key "votes", "users"
 end

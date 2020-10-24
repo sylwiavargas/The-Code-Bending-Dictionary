@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  
+
+  resources :technologies, only: [:show, :index]
   resources :definitions, only: [:new, :create, :update, :edit, :delete]
+  resources :votes, only: [:new, :create, :update, :edit, :delete]
   resources :favorites, only: [:new, :create, :index]
   resources :words
 
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "users#logout", as: "logout"
 
   get "/profile", to: "users#profile", as: "profile"
-  
+
   get "/users", to: "users#index", as: "users" #users_path
   get "/users/new", to: "users#new", as: "new_user"
   post "/users", to: "users#create"

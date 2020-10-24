@@ -4,6 +4,7 @@ Favorite.destroy_all
 Definition.destroy_all
 User.destroy_all
 Word.destroy_all
+Vote.destroy_all
 # Language.destroy_all
 
 puts "🌬 resets ids"
@@ -12,14 +13,27 @@ Favorite.reset_pk_sequence
 Definition.reset_pk_sequence
 User.reset_pk_sequence
 Word.reset_pk_sequence
+Vote.reset_pk_sequence
 # Language.reset_pk_sequence
 
 
 puts "creating users..."
-foobar = User.create(first_name: "Foo", last_name: "Bar", nickname: "foobar", age: 1000, password: "abc123")
+foobar = User.create!(first_name: "Foo", last_name: "Bar", nickname: "foobar", age: 1000, password: "abc123")
+
+shreya = User.create!(first_name: "Shreya", last_name: "L", nickname: "", age: 1000, password: "abc123")
+
+juan = User.create!(first_name: "Juan", last_name: "L", nickname: "", age: 1000, password: "abc123")
 # eric = User.create!(username: "erickim", password: "abc123")
 # sylwia = User.create!(username: "sylwiavargas", password: "abc123")
 # annie = User.create!(username: "anniezheng", password: "abc123")
+
+puts "creating technologies..."
+javascript = Technology.create!(name: "JavaScript")
+react = Technology.create!(name: "React")
+rails = Technology.create!(name: "Rails")
+ruby = Technology.create!(name: "Ruby")
+redux = Technology.create!(name: "Redux")
+general_tech = Technology.create!(name: "General Tech")
 
 puts "creating words..."
 model = Word.create!(content: "Model", approved: true)
@@ -183,7 +197,7 @@ component_will_unmount = Word.create!(content: "componentWillUnmount", approved:
 use_state = Word.create!(content: "useState", approved: true)
 use_effect = Word.create!(content: "useEffect", approved: true)
 use_ref = Word.create!(content: "useRef", approved: true)
-
+unit_testing = Word.create!(content: "Unit Testing", approved: true)
 # puts "creating favorites..."
 # e_mvc = Favorite.create!(user: eric, word: mvc)
 # e_response = Favorite.create!(user: eric, word: response)
@@ -196,24 +210,43 @@ use_ref = Word.create!(content: "useRef", approved: true)
 
 
 puts "creating definitions..."
-# read_more attribute example:
-angry_squid_def = Definition.create!(user: User.first, approved: true, content: "'<%= %>': angry squid shoots ink or evaluates ruby code and prints", word: angry_squid, read_more_url: "https://dev.to/sylwiavargas/which-erb-tag-should-i-use-53f1", read_more_at: "Dev blog")
-ice_cream_cone_def = Definition.create!(user: User.first, approved: true, content: "'<% %>': Ice cream cone evaluates ruby code but does not print", word: ice_cream_cone, read_more_url: "https://dev.to/sylwiavargas/which-erb-tag-should-i-use-53f1", read_more_at: "Dev blog")
 
-# meme example:
-model_def = Definition.create!(user: User.first, approved: true, content: "A blueprint for creating instances; manages data in the database", word: model, meme_url: "https://github.com/sylwiavargas/schedules/blob/master/mod1-lectures/08-Classes-Instances-Attributes/dog-rb-2.png?raw=true", meme_alt_text: "a personified Ruby assembles a dog following an Ikea-like manual")
+# FOR REFERENCE: read_more attributes example
+belongs_to_def = Definition.create!(user: User.first, approved: true, content: "a one-to-one relationship between two tables in which one of them belongs to the other. This is based on where the foreing keys are located in that relationship.",word: belongs_to_w, read_more_url: "https://www.freecodecamp.org/news/understanding-the-basics-of-ruby-on-rails-sql-databases-and-how-they-work-7a628cd42073/", read_more_at:"FreeCodeCamp Blog",technology: rails)
 
-# other available definitions:
-controller_def = Definition.create!(user: User.first, approved: true, content: "Communicates between the model (database) and views (user interface/website/browser)", word: controller)
-controller_def_2 = Definition.create!(user: User.first, approved: true, content: "A controller is the waiter; between the model and the view. It determines what the user will be doing/seeing based on the request", word: controller)
-module_word_def_js = Definition.create!(user: User.first, approved: true, content: "Your personal toolbox of functions that can be called upon instead of repeating them in your code", word: module_word)
-module_word_def_ruby = Definition.create!(user: User.first, approved: true, content: "Your personal toolbox of methods that can be called upon instead of repeating them in your code", word: module_word)
-mvc_def = Definition.create!(user: User.first, approved: true, content: "Model-View-Controller, its a design pattern for building web applications  (chef, waiter, serving/dining table)", word: mvc)
-params_def = Definition.create!(user: User.first, approved: true, content: "A hash with all the spicy user's input from the url input field or forms", word: params)
-request_def = Definition.create!(user: User.first, approved: true, content: "Client sends a requests to get information to/from the server", word: request)
-response_def = Definition.create!(user: User.first, approved: true, content: "What server sends back to the user (client) after it processes the data", word: response)
-route_def = Definition.create!(user: User.first, approved: true, content: "A route is a path that allows you access a page of your preference; it connects with an appropriate method and renders an appropriate view", word: route)
-strong_params_def = Definition.create!(user: User.first, approved: true, content: "Rails safeguard against the meanies of the world -- it's a nested hash", word: strong_params)
-view_def = Definition.create!(user: User.first, approved: true, content: "The HTML files (what is displayed on the browser)", word: view)
+# FOR REFERENCE: meme attributes example
+unit_testing_def = Definition.create!(user: User.first, approved: true,  content: "refers to the practice of testing areas(units) of code to verify that works as expected.", word: unit_testing, read_more_url: "https://guides.rubyonrails.org/testing.html", read_more_at: "Ruby on Rails Guides", meme_url: "https://i.pinimg.com/originals/fb/5f/67/fb5f67bb4a5be5b072a527d864309e55.jpg", meme_alt_text: "Image of Principal Skinner from The Simpsons with buildings skylines as background. In the first frame, he is standing with a hand to his chin, a text buble reads: 'Is my code bad?'. On the second frame, he is standing with one hand at belly height, a text buble reads: 'No, the tests are wrong'.", technology: general_tech)
+
+### HERE ARE DEFINITIONS --- ADD YOURS BELOW
+angry_squid_def = Definition.create!(user: User.first, approved: true, content: "'<%= %>': angry squid shoots ink or evaluates ruby code and prints", word: angry_squid, read_more_url: "https://dev.to/sylwiavargas/which-erb-tag-should-i-use-53f1", read_more_at: "Dev blog", meme_url: "https://res.cloudinary.com/practicaldev/image/fetch/s--XEpd1g3r--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/i/qi9kko95vgpn0iknjaq0.png", meme_alt_text:"a graphic erb cheatsheet for when to use erb tags or html. If code needs to be visible or return something you want to use the angry squid <%=", technology: rails)
+associations_def = Definition.create!(user: User.first,approved: true, content: "the relationship between the tables(models) in the database", word: associations, read_more_url: "https://medium.com/swlh/the-simplest-way-to-understand-associations-in-rails-dc03cfe067f2", read_more_at: "Medium blog", technology: ruby)
+controller_def = Definition.create!(user: User.first, approved: true,content: "Communicates between the model (database) and views (user interface/website/browser)", word: controller, technology: ruby)
+controller_def_2 = Definition.create!(user: User.first, approved: true,content: "A controller is the waiter; between the model and the view. It determines what the user will be doing/seeing based on the request", word: controller, technology: ruby)
+crud = Definition.create!(user: User.first, approved: true, content:"An acronym for CREATE, READ, UPDATE, and DELETE. These are 4 basic actions that we can use when dealing with the database ", word: crud, technology: general_tech)
+flash_hash_def = Definition.create!(user: User.first, approved: true, content: "A way to pass information from one controller action to another ONLY ONCE (i.e. displaying on a login form the user entered the wrong password)", word: flash_hash, technology: rails)
+getter_method=Definition.create!(user: User.first, approved: true, content: "This method is used to retrieve or GET a value of an instance variable", word: getter_method, technology: general_tech )
+hash_def = Definition.create!(user: User.first, approved: true,  content: "is a collection of key-value pairs like this: 'employee: salary'. It is similar to an Array, except that the data pairing is done randomly using the object's keys (ie. employee) instead of a numeric index. A hash is also known as an associative array", word: hash, read_more_url: "http://ruby-for-beginners.rubymonstas.org/built_in_classes/hashes.html", read_more_at: "Ruby For Beginners by Ruby Monstas", meme_url: "https://external-preview.redd.it/RxSr9RZBQcfmOsmWKoyNqFdrL7NJsjNh7KOIJm7eey4.jpg?auto=webp&s=16bded488109f382ba4bae8d38ccd1ee55d5f3c3", meme_alt_text: "Image of the rapper/actor T-ice driving a car on a street with trees on the sides. White text on image reads %i{it was a good day} => [:it, :was, :a, :good, :day]", technology: ruby)
+ice_cream_cone_def = Definition.create!(user: User.first, approved: true, content: "'<% %>': Ice cream cone evaluates ruby code but does not print", word: ice_cream_cone, read_more_url: "https://dev.to/sylwiavargas/which-erb-tag-should-i-use-53f1", read_more_at: "Dev blog", technology: rails)
+model_def = Definition.create!(user: User.first, approved: true, content: "a blueprint for creating instances; manages data in the database", word: model, meme_url: "https://github.com/sylwiavargas/schedules/blob/master/mod1-lectures/08-Classes-Instances-Attributes/dog-rb-2.png?raw=true", meme_alt_text: "a personified Ruby assembles a dog following an Ikea-like manual", technology: ruby)
+module_word_def_js = Definition.create!(user: User.first, approved: true,content: "Your personal toolbox of functions that can be called upon instead of repeating them in your code", word: module_word, technology: javascript)
+module_word_def_ruby = Definition.create!(user: User.first, approved: true,content: "Your personal toolbox of methods that can be called upon instead of repeating them in your code", word: module_word, technology: ruby)
+mvc_def = Definition.create!(user: User.first, approved: true,content: "Model-View-Controller, its a design pattern for building web applications  (chef, waiter, serving/dining table)", word: mvc, technology: rails)
+object_oriented_programming_def = Definition.create!(user: juan, content: "Object Oriented Programming is a programming design pattern that allows you to build code modules, called classes, which work as blueprints used to create instances of objects with specific attributes and behaviors defined in the class layout.", word: object_oriented_programming, technology: general_tech, read_more_url:"https://www.educative.io/blog/object-oriented-programming", read_more_at: "Educative", meme_url:"https://miro.medium.com/max/2400/1*L_uA2YbOpgF4loAX3OkXzw.jpeg", meme_alt_text:"Image of the actor Leonardo DiCaprio holding a glass of champagne. White text on image reads 'Object Oriented Programming, because you've got class'")
+oop_def = Definition.create!(user: juan, content: "OOP stands for 'Object Oriented Programming'. Object Oriented Programming is a programming design pattern that allows you to build code modules, called classes, which work as blueprints used to create instances of objects with specific attributes and behaviors defined in the class layout.", word: object_oriented_programming, technology: general_tech, read_more_url:"https://www.educative.io/blog/object-oriented-programming", read_more_at: "Educative", meme_url:"https://miro.medium.com/max/2400/1*L_uA2YbOpgF4loAX3OkXzw.jpeg", meme_alt_text:"Image of the actor Leonardo DiCaprio holding a glass of champagne. White text on image reads 'Object Oriented Programming, because you've got class'")
+params_def = Definition.create!(user: User.first, approved: true,content: "A hash with all the spicy user's input from the url input field or forms", word: params, technology: ruby)
+request_def = Definition.create!(user: User.first, approved: true,content: "Client sends a requests to get information to/from the server", word: request, technology: rails)
+response_def = Definition.create!(user: User.first, approved: true,content: "What server sends back to the user (client) after it processes the data", word: response, technology: rails)
+route_def = Definition.create!(user: User.first, approved: true, content: "A route is a path that allows you access a page of your preference; it connects with an appropriate method and renders an appropriate view", word: route, technology: general_tech)
+setter_method=Definition.create!(user: User.first, approved: true, content: "This method is used to SET or assign the value of an instance variable", word: setter_method, technology: general_tech )
+strong_params_def = Definition.create!(user: User.first, approved: true,content: "Rails safeguard against the meanies of the world -- it's a nested hash", word: strong_params, technology: rails)
+view_def = Definition.create!(user: User.first, approved: true,content: "The HTML files (what is displayed on the browser)", word: view, technology: rails)
+web_scraping_def = Definition.create!(user: shreya, content: "In its simplest form, web scraping can be thought of as copying and pasting data from a website. In it's more complex form, it can be thought of as an automated process of collecting hundreds to billions of data points from the web.", word: web_scraping, technology: general_tech, read_more_url:"https://www.scrapinghub.com/what-is-web-scraping/", read_more_at: "Scraping Hub", meme_url:"https://www.octoparse.com/media/7179/find-data.jpg", meme_alt_text:"")
+
+
+puts "creating votes..."
+
+model_def_vote_foobar = Vote.create!(user: foobar, definition: model_def) # value 1
+# model_def_vote_clara = Vote.create!(user: clara, definition: model_def) # value 1
+# controller_def_2_vote_clara = Vote.create!(user: clara, definition: controller_def_2, value: 10)
 
 puts "📚 📚 📚  let the show begin 📚 📚 📚 "

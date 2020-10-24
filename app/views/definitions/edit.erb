@@ -1,9 +1,23 @@
 <h1> Edit the definition for <%= @definition %> </h1>
 
-<%= form_for @definition do |f| %>
+<%= form_for @definition, remote: true do |f| %>
   <%= f.label :content, "The definition:" %>
   <%= f.text_area :content %> <br/>
+  
+ <%= f.label :read_more_at, "name of the website to read more at:" %>
+  <%= f.text_field :read_more_at %> <br/>
+
+  <%= f.label :read_more_url, "add the link to read more:" %>
+  <%= f.text_field :read_more_url %> <br/>
+  
+  <%= f.label :meme_url, "add a meme link:" %>
+  <%= f.text_area :meme_url %> <br/>
+
+  <%= f.label :meme_alt_text, "add meme's alt text:" %>
+  <%= f.text_area :meme_alt_text %> <br/>
+ 
   <%= f.label :word_id, "The word:" %>
   <%= f.collection_select :word_id, @words, :id, :content %> <br/>
+  
   <%= f.submit "Ready!" %>
 <% end %>
