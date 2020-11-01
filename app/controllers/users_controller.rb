@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
-  before_action :get_user, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authorized_to_see_page, only: [:login, :handle_login, :new, :create]
-  
+  before_action :get_user, only: %i[show edit update destroy]
+  skip_before_action :authorized_to_see_page, only: %i[login handle_login new create]
+
   def profile
     render :profile
   end
@@ -12,11 +14,11 @@ class UsersController < ApplicationController
 
   def handle_login
     @user = User.find_by(first_name: params[:first_name])
-    if @user && @user.authenticate(params[:password])
+    if @user&.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect_to profile_path
     else
-      flash[:error] = "Incorrect username or password"
+      flash[:error] = 'Incorrect username or password'
       redirect_to login_path
     end
   end
@@ -40,13 +42,12 @@ class UsersController < ApplicationController
     end
   end
 
-  
   def create
-  @user = User.create(user_params)
+    @user = User.create(user_params)
     if @user.valid?
       session[:user_id] = @user.id
       redirect_to users_path
-    else 
+    else
       flash[:errors] = @user.errors.full_messages
       redirect_to new_user_path
     end
@@ -67,6 +68,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def get_user
     @user = User.find(params[:id])
   end
@@ -74,5 +76,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :age, :password)
   end
-
 end

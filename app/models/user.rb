@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :votes, dependent: :destroy
   has_many :words, through: :favorites
   has_many :definitions
 
-  default_scope { order(first_name: :asc)}
+  default_scope { order(first_name: :asc) }
 
   # validates :first_name, presence: true, uniqueness: true
   # validates :last_name, presence: true, uniqueness: true
@@ -13,10 +15,10 @@ class User < ApplicationRecord
   has_secure_password
 
   def full_name
-    self.first_name + " " + self.last_name
+    "#{first_name} #{last_name}"
   end
 
   def full_name_and_age
-    self.first_name + " " + self.last_name + ", age: " + self.age.to_s
+    "#{first_name} #{last_name}, age: #{age}"
   end
 end

@@ -88,7 +88,18 @@ Go on [official Rails website](https://gorails.com/setup/windows/10) & follow th
 ```
     $ rails s
 ```
+
+Running rubocop with no arguments will check all Ruby source files in the current directory:
+```
+rubocop
+```
+You can also run RuboCop in an auto-correct mode, where it will try to automatically fix the problems it found in your code:
+```
+rubocop -a
+```
+
 ***
+
 ## Domain model
 ![Domain model](ERD.png)
 

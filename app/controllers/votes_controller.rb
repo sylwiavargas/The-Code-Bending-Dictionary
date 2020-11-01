@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class VotesController < ApplicationController
-  before_action :get_vote, only: [:show, :edit, :update, :destroy]
+  before_action :get_vote, only: %i[show edit update destroy]
 
   def new
     @vote = Vote.new
-  end 
+  end
 
   def create
     @vote = Vote.create(vote_params)
