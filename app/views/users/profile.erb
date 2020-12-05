@@ -1,18 +1,13 @@
 <h1>Welcome to the Profile Page!</h1>
 
-<h2>Name: <%=@current_user.full_name %> </h2>
+<h2>Name: <%=@current_user.username %> </h2>
 
-<p> 
-    <strong> Age:</strong> <%=@current_user.age %> years old 
-</p>
 <hr/>
 
 <%= form_for @current_user do |f| %>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %> <br/>
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %><br/>
-    <%= f.label :age %>
-    <%= f.number_field :age %><br/>
+    <%= f.label :username %>
+    <%= f.text_field :username %> <br/>
+    <%= f.label :email %>
+    <%= f.text_field :email %><br/>
     <%= f.submit %>
 <% end %> 

@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def handle_login
-    @user = User.find_by(first_name: params[:first_name])
+    @user = User.find_by(username: params[:username])
     if @user&.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect_to profile_path
@@ -74,6 +74,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :age, :password)
+    params.require(:user).permit(:username, :email, :password)
   end
 end

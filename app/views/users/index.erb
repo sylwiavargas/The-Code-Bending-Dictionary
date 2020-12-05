@@ -3,7 +3,7 @@
 
 <ul>
     <% @users.map do |user_var|%>
-        <li> <%= link_to user_var.full_name, user_path(user_var.id) %> </li>
+        <li> <%= link_to user_var.username, user_path(user_var.id) %> </li>
     <%end%>
 
 </ul>

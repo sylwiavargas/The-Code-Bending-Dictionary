@@ -198,6 +198,11 @@ Thank you!
             <a href="https://github.com/jplessey"><img src="https://avatars2.githubusercontent.com/u/16312212?s=400&u=024b047d2afbb1f913cc3be22250c83af385b446&v=4" width="200px;" alt=""/><br/><sub><b>Juan Lessey</b></sub></a><br/>
             <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=jplessey" title="Code">💻</a> 
         </td>
+        <td></td>
+        <td align="center">
+            <a href="https://github.com/ChenyunZhang"><img src="https://avatars0.githubusercontent.com/u/48425394?s=460&u=62ced7759dc0f31603805a1fd603b13fccfd5cf1&v=4" width="200px;" alt=""/><br/><sub><b>ChenYun Zheng</b></sub></a><br/>
+            <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=ChenyunZhang" title="Code">💻</a> 
+        </td>
     </tr>
 </table>
 
