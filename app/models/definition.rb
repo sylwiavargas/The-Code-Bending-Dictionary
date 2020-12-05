@@ -19,20 +19,26 @@ class Definition < ApplicationRecord
 
   private
 
+  def checks_attribute(object, str1, str2)
+    attr1 = str1.to_sym
+    attr2 = str2.to_sym
+    object.send(attr1) && !object.send(attr2) || !object.send(attr1) && object.send(attr2)
+  end
+
   def checks_read_more_at_and_url
-    if read_more_url && !read_more_at || !read_more_url && read_more_at
-      errors.add(:read_more_at, "Definition of #{self.word.content}must include both read_more_at and a read_more_url at the same time")
-    end
+    return unless checks_attribute(self, 'read_more_url', 'read_more_at')
+
+    errors.add(:read_more_at, 'must include both read_more_at and a read_more_url')
   end
 
   def checks_meme_url_and_alt
-    if meme_url && !meme_alt_text || !meme_url && meme_alt_text
-      errors.add(:meme_alt_text, "Definition of #{self.word.content} must include both meme_alt_text and a meme_url at the same time")
-    end
+    return unless checks_attribute(self, 'meme_url', 'meme_alt_text')
+
+    errors.add(:meme_alt_text, 'must include both meme_alt_text and a meme_url')
   end
 
   def right_number_of_words
     words_number = content.split.length
-    errors.add(:content, "needs to be between 3 and 50 words long and definition of #{self.word.content} is #{words_number}") if words_number < 3 || words_number > 50
+    errors.add(:content, 'needs to be 3-50 words long') if words_number < 3 || words_number > 50
   end
 end

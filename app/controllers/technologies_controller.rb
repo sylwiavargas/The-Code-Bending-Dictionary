@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class TechnologiesController < ApplicationController
-  before_action :set_technology, only: [:show]
+  before_action :find_technology, only: [:show]
 
   # GET /technologies
   # GET /technologies.json
@@ -16,7 +16,7 @@ class TechnologiesController < ApplicationController
   private
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_technology
+  def find_technology
     @technology = Technology.find(params[:id])
   end
 end

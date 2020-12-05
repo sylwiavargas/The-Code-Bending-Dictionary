@@ -1,5 +1,15 @@
+Documentation:
+  Enabled: false
 AllCops:
   Exclude:
     - 'node_modules/**/*'
     - 'vendor/**/*'
     - 'db/seeds.rb'
+    - 'db/schema.rb'
+    - 'db/migrate/**'
+    - 'bin/bundle'
+Metrics/BlockLength:
+  Exclude:
+    - 'Rakefile'
+    - '**/*.rake'
+    - 'test/**/*.rb'

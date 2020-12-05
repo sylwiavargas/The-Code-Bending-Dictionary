@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class WordsController < ApplicationController
-  before_action :get_word, only: %i[show edit update destroy]
+  before_action :find_word, only: %i[show edit update destroy]
 
   def index
     @words = Word.all
@@ -28,7 +28,7 @@ class WordsController < ApplicationController
 
   private
 
-  def get_word
+  def find_word
     @word = Word.find(params[:id])
   end
 

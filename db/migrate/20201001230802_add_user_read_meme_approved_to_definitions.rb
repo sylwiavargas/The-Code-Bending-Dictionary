@@ -1,3 +1,4 @@
+# :nodoc:
 # frozen_string_literal: true
 
 class AddUserReadMemeApprovedToDefinitions < ActiveRecord::Migration[6.0]

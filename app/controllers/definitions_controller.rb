@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class DefinitionsController < ApplicationController
-  before_action :get_definition, only: %i[edit update destroy] # , :show]
+  before_action :find_definition, only: %i[edit update destroy] # , :show]
 
   # def index
   #   @definitions = Definition.all
@@ -33,11 +33,19 @@ class DefinitionsController < ApplicationController
 
   private
 
-  def get_definition
+  def find_definition
     @definition = Definition.find(params[:id])
   end
 
   def definition_params
-    params.require(:definition).permit(:content, :word_id, :user_id, :read_more_url, :read_more_at, :meme_url, :meme_alt_text)
+    params.require(:definition).permit(
+      :content,
+      :word_id,
+      :user_id,
+      :read_more_url,
+      :read_more_at,
+      :meme_url,
+      :meme_alt_text
+    )
   end
 end

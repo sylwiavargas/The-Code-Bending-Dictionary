@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :get_user, only: %i[show edit update destroy]
+  before_action :find_user, only: %i[show edit update destroy]
   skip_before_action :authorized_to_see_page, only: %i[login handle_login new create]
 
   def profile
@@ -69,7 +69,7 @@ class UsersController < ApplicationController
 
   private
 
-  def get_user
+  def find_user
     @user = User.find(params[:id])
   end
 

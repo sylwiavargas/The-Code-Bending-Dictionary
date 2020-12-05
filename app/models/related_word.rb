@@ -9,8 +9,8 @@ class RelatedWord < ApplicationRecord
   validate :stop_self_relation
 
   # Documentation: https://collectiveidea.com/blog/archives/2015/07/30/bi-directional-and-self-referential-associations-in-rails
-  after_create :create_inverse, unless: :has_inverse?
-  after_destroy :destroy_inverses, if: :has_inverse?
+  after_create :create_inverse, unless: :inverse?
+  after_destroy :destroy_inverses, if: :inverse?
 
   private
 
@@ -22,7 +22,7 @@ class RelatedWord < ApplicationRecord
     self.class.where(inverse_attributes).destroy_all
   end
 
-  def has_inverse?
+  def inverse?
     self.class.exists?(inverse_attributes)
   end
 

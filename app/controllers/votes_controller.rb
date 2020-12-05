@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class VotesController < ApplicationController
-  before_action :get_vote, only: %i[show edit update destroy]
+  before_action :find_vote, only: %i[show edit update destroy]
 
   def new
     @vote = Vote.new
@@ -23,7 +23,7 @@ class VotesController < ApplicationController
 
   private
 
-  def get_vote
+  def find_vote
     @user = Vote.find(params[:id])
   end
 
