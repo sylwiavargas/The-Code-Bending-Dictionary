@@ -132,7 +132,7 @@ Visit [issues](https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issue
     </td>
     <td></td>
     <td align="center">
-      <a href="https://github.com/hyeokjungkim"><img src="https://media-exp1.licdn.com/dms/image/C4E03AQE_xHTl1agOQw/profile-displayphoto-shrink_400_400/0?e=1606348800&v=beta&t=eoVEoDnSRXqKT1OvSAmPuspCnTnd0Rp0qMehn7QJPuo" width="200px;" alt=""/><br /><sub><b>Eric Kim</b></sub></a><br />
+      <a href="https://github.com/hyeokjungkim"><img src="https://media-exp1.licdn.com/dms/image/C4E03AQE_xHTl1agOQw/profile-displayphoto-shrink_800_800/0/1566942802687?e=1612396800&v=beta&t=mxvBmKSAQy7v_WDzL4pCZHLirTSlRo-FNXXuag4bKrU" width="200px;" alt=""/><br /><sub><b>Eric Kim</b></sub></a><br />
       <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=hyeokjungkim" title="Code">💻</a> 
       <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues/created_by/hyeokjungkim" title="Bug reports">🐛</a>
       <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues?q=assignee%3Ahyeokjungkim" title="Fixes">🛠</a>
