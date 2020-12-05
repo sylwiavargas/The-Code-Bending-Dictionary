@@ -183,7 +183,7 @@ extends = Word.create!(content: "extends", approved: true)
 import = Word.create!(content: "import", approved: true)
 export = Word.create!(content: "export", approved: true)
 hooks = Word.create!(content: "hooks", approved: true)
-react = Word.create!(content: "react", approved: true)
+react_word = Word.create!(content: "react", approved: true)
 context = Word.create!(content: "context", approved: true)
 src = Word.create!(content: "src", approved: true)
 manifest = Word.create!(content: "manifest", approved: true)
@@ -242,6 +242,47 @@ strong_params_def = Definition.create!(user: User.first, approved: true,content:
 view_def = Definition.create!(user: User.first, approved: true,content: "The HTML files (what is displayed on the browser)", word: view, technology: rails)
 web_scraping_def = Definition.create!(user: shreya, content: "In its simplest form, web scraping can be thought of as copying and pasting data from a website. In it's more complex form, it can be thought of as an automated process of collecting hundreds to billions of data points from the web.", word: web_scraping, technology: general_tech, read_more_url:"https://www.scrapinghub.com/what-is-web-scraping/", read_more_at: "Scraping Hub", meme_url:"https://www.octoparse.com/media/7179/find-data.jpg", meme_alt_text:"")
 
+#################################################################
+chenyun = User.create!(first_name: "chenyun", password: "abc123")
+
+# props, jsx, and extend
+
+jsx_def = Definition.create!(
+    user: User.first, 
+    approved: true,
+    content: "JSX stands for JavaScript XML. JSX converts HTML tags into react elements.",
+    word: jsx, 
+    technology: react,
+    read_more_url: "https://www.w3schools.com/react/react_jsx.asp#:~:text=JSX%20stands%20for%20JavaScript%20XML,and%20add%20HTML%20in%20React.", 
+    read_more_at: "W3 School",
+    meme_url: "https://media.giphy.com/media/5WJlk4CjBWZ5SNE4SC/giphy.gif", 
+    meme_alt_text: "transform"
+  )
+
+
+  props_def = Definition.create!(
+    user: User.first, 
+    approved: true, 
+    content: "props stands for properties, it is used for passing custom data from parent component to child component",
+    word: props,
+    technology: react,
+    read_more_url: "https://programmingwithmosh.com/javascript/react-props-vs-state/", 
+    read_more_at: "programmingwithmosh.com",
+    meme_url: "https://media.giphy.com/media/1oFqxMYv5JQvuFtX8o/giphy.gif", 
+    meme_alt_text: "sharing"
+  )
+
+  extend_def = Definition.create!(
+    user: User.first, 
+    approved: true, 
+    content: "To define a React component class, you need to extend React.Component. The newly defined react component class will inherit functions from the React.Component",
+    word: extends,
+    technology: react,
+    read_more_url: "https://www.javascriptjanuary.com/blog/extending-react", 
+    read_more_at: "JavaScript January", 
+    meme_url: "https://media.giphy.com/media/3o6MbpwMVsBkNU9RLO/giphy.gif", 
+    meme_alt_text: "inheritance"
+  )
 
 puts "creating votes..."
 
