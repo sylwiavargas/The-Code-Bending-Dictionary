@@ -39,6 +39,7 @@ class Definition < ApplicationRecord
 
   def right_number_of_words
     words_number = content.split.length
-    errors.add(:content, 'needs to be 3-50 words long') if words_number < 3 || words_number > 50
+    return unless words_number < 3 || words_number > 50
+    errors.add(:content, 'needs to be 3-50 words long')
   end
 end
