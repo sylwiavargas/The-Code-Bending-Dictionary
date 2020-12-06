@@ -2,6 +2,7 @@
 
 class WordsController < ApplicationController
   before_action :find_word, only: %i[show edit update destroy]
+  before_action :admin_access, only: :pending
 
   def index
     @words = Word.all
@@ -12,7 +13,7 @@ class WordsController < ApplicationController
   end
 
   def create
-    @word = Word.create(word_params)
+    @word = Word.create!(word_params)
     redirect_to words_path
   end
 
@@ -27,6 +28,12 @@ class WordsController < ApplicationController
   end
 
   private
+
+  def admin_access
+    raise ArgumentError, 'you need to be an admin to see this content' unless @current_user.admin
+  rescue StandardError => e
+    render json: { "error": e.message.to_s }, status: 401
+  end
 
   def find_word
     @word = Word.find(params[:id])

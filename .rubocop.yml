@@ -13,3 +13,6 @@ Metrics/BlockLength:
     - 'Rakefile'
     - '**/*.rake'
     - 'test/**/*.rb'
+Naming/MethodName: 
+  Exclude:
+    - 'app/serializers/**'

@@ -12,7 +12,7 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    @favorite = @current_user.favorites.create(favorite_params)
+    @favorite = @current_user.favorites.create!(favorite_params)
     redirect_to user_path(@current_user)
   end
 

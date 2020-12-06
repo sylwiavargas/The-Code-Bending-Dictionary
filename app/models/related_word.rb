@@ -15,7 +15,7 @@ class RelatedWord < ApplicationRecord
   private
 
   def create_inverse
-    self.class.create(inverse_attributes)
+    self.class.create!(inverse_attributes)
   end
 
   def destroy_inverses

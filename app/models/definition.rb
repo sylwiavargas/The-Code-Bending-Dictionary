@@ -17,6 +17,13 @@ class Definition < ApplicationRecord
     content.downcase
   end
 
+  def votes_total_value
+    votes.sum(&:value)
+  end
+
+  scope :okayed, -> { where(approved: true) }
+  scope :pending, -> { where(approved: false) }
+
   private
 
   def checks_attribute(object, str1, str2)
@@ -40,6 +47,7 @@ class Definition < ApplicationRecord
   def right_number_of_words
     words_number = content.split.length
     return unless words_number < 3 || words_number > 50
+
     errors.add(:content, 'needs to be 3-50 words long')
   end
 end
