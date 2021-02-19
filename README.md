@@ -1,7 +1,7 @@
 # The Code-Bending Dictionary
 ---
 
-The Code Bending Dictionary is an initiative aiming to help new code learners (code benders) in befriending tech vocab. We focus on general programming terms, or those relating to Ruby, Rails, JS, React, or Redux.
+The Code Bending Dictionary is an initiative aiming to help new code learners (code benders) in befriending tech vocab. We focus on general programming terms, or those relating to Ruby, Rails, JS, React, or Redux. Make sure to check out our [wiki]( https://github.com/sylwiavargas/The-Code-Bending-Dictionary/wiki). 
 
 The dictionary was an idea of **The Code Benders Cohort** of Flatiron School's Immersive Software Engineering Program, and was developed initially as a part of Ruby and Ruby on Rails lectures. 
 
@@ -132,7 +132,7 @@ Visit [issues](https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issue
     </td>
     <td></td>
     <td align="center">
-      <a href="https://github.com/hyeokjungkim"><img src="https://media-exp1.licdn.com/dms/image/C4E03AQE_xHTl1agOQw/profile-displayphoto-shrink_800_800/0/1566942802687?e=1612396800&v=beta&t=mxvBmKSAQy7v_WDzL4pCZHLirTSlRo-FNXXuag4bKrU" width="200px;" alt=""/><br /><sub><b>Eric Kim</b></sub></a><br />
+      <a href="https://github.com/hyeokjungkim"><img src="https://media-exp1.licdn.com/dms/image/C4E03AQE_xHTl1agOQw/profile-displayphoto-shrink_400_400/0/1566942802687?e=1619049600&v=beta&t=4eTTLh6vrGqrGkX4aD95NJrTkU80tYPzvDGrn2lQuLI" width="200px;" alt=""/><br /><sub><b>Eric Kim</b></sub></a><br />
       <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/commits?author=hyeokjungkim" title="Code">💻</a> 
       <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues/created_by/hyeokjungkim" title="Bug reports">🐛</a>
       <a href="https://github.com/sylwiavargas/The-Code-Bending-Dictionary/issues?q=assignee%3Ahyeokjungkim" title="Fixes">🛠</a>
